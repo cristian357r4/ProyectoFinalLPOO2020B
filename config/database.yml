@@ -1,0 +1,21 @@
+default: &default
+  adapter: mysql
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: root
+  password: 2968239ms
+  host: db
+
+development:
+  <<: *default
+  host: db
+  database: salud
+
+test:
+  <<: *default
+  database: myapp_test
+
+production:
+  <<: *default
+  database: myapp_production
+  username: myapp
+  password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>
