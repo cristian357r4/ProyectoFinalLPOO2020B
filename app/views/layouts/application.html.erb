@@ -8,8 +8,8 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-    <%= stylesheet_link_tag    'bootstrap', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'bootstrap', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'bootstrap'%>
+    <%= javascript_include_tag 'bootstrap'%>
     <script src="https://kit.fontawesome.com/ad04fcca62.js" crossorigin="anonymous"></script>
 
   </head>
@@ -17,5 +17,8 @@
   <body>
     <%= render 'layouts/navbar' %>
     <%= yield %>
+    <div class="blockquote-footer">
+      <%= debug(params) if Rails.env.development? %>
+    </div>
   </body>
 </html>

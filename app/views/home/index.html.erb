@@ -1,1 +1,43 @@
+<%# TODO Agregar estilos al formulario de registro y pasar el formulario a las carpetas que correspondan%>
 <h1> Hola mundo</h3>
+<%= form_with(model: @persona,url: guardar_nutriologo_path ,local: true ) do |persona| %>
+  <div class="form-group">
+    <%= persona.text_field :nombre, placeholder: "Introduzaca su Nombre"%>
+  </div>
+  <div class="form-group">
+    <%= persona.text_field :paterno, placeholder: "Paterno"%>
+  </div>
+  <div class="form-group">
+    <%= persona.text_field :materno, placeholder: "Materno"%>
+  </div>
+  <div class="form-group">
+    <%= persona.select :sexo, options_for_select([["Seleccione uno",nil],["Hombre","H"], ["Mujer","M"],["Otro","O"]])%>
+  </div>
+  <div class="form-group">
+    <%= persona.telephone_field(:telefono, placeholder: "telefono")%>
+  </div>
+  <div class="form-group">
+    <%= persona.email_field(:correo) %>
+  </div>
+  <%= persona.fields_for :nutriologo do |nutriologo_fileds| %>
+    <div class="form-group">
+      <%= nutriologo_fileds.text_field :cedula, placeholder: "cedula"%>
+    </div>
+    <div class="form-group">
+      <%= nutriologo_fileds.text_field :login, placeholder: "login" %>
+    </div>
+    <div class="form-group">
+      <%= nutriologo_fileds.password_field :password%>
+    </div>
+    <div class="form-group">
+      <%= nutriologo_fileds.password_field :password_confirmation%>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3">
+        <%= persona.submit "Registrarse", class: "form-control btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+<% end %>
