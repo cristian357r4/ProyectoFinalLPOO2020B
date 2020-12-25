@@ -9,7 +9,6 @@ class HomeController < ApplicationController
     @persona = @nutriologo.personas.new(params[:persona].permit(:nombre,:paterno,:materno,
                                                                :sexo, :telefono, :correo))
     @persona.save
-    redirect_to root_path
   end
 
 private
