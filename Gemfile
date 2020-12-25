@@ -10,7 +10,7 @@ gem 'activerecord-jdbcmysql-adapter'
 
 gem 'jquery-rails'
 
-#gem 'jquery-validation-rails'
+gem 'jquery-validation-rails'
 
 gem 'bootstrap', '~> 4.5.3'
 

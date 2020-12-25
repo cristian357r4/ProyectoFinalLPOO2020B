@@ -1,4 +1,4 @@
-<%= form_with(model: @persona, url: pacientes_path, local: true) do |persona| %>
+<%= form_with(model: @persona, id: 'formulario_pacientes', url: pacientes_path, local: true) do |persona| %>
 
   <div class="form-group">
     <%= persona.text_field :nombre, placeholder: "Introduzaca su Nombre"%>

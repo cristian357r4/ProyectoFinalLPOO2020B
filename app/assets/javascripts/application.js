@@ -14,6 +14,8 @@
 //= require jquery_ujs
 //= require popper
 //= require bootstrap
+//= require jquery.validate
+//= require jquery.validate.additional-methods
 //= require activestorage
 //= require turbolinks
 //= require_tree .
