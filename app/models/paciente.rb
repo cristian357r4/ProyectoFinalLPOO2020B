@@ -1,3 +1,4 @@
 class Paciente < ApplicationRecord
-  has_many :personas, :as => :perstable
+  #permite destruir al paciente junto con sus datos personales
+  has_many :personas, :as => :perstable, dependent: :destroy
 end

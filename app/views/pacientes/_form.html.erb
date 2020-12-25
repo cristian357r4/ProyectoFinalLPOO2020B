@@ -1,0 +1,71 @@
+<%= form_with(model: @persona, url: pacientes_path, local: true) do |persona| %>
+
+  <div class="form-group">
+    <%= persona.text_field :nombre, placeholder: "Introduzaca su Nombre"%>
+  </div>
+
+  <div class="form-group">
+    <%= persona.text_field :paterno, placeholder: "Paterno"%>
+  </div>
+
+  <div class="form-group">
+    <%= persona.text_field :materno, placeholder: "Materno"%>
+  </div>
+
+  <div class="form-group">
+    <%= persona.select :sexo, options_for_select([["Seleccione uno",nil],["Hombre","H"], ["Mujer","M"],["Otro","O"]])%>
+  </div>
+
+  <div class="form-group">
+    <%= persona.telephone_field(:telefono, placeholder: "telefono")%>
+  </div>
+
+  <div class="form-group">
+    <%= persona.email_field(:correo) %>
+  </div>
+  <%= persona.fields_for :paciente do |paciente_fields| %>
+
+    <div class="field">
+      <%= paciente_fields.label :domicilio %>
+      <%= paciente_fields.text_field :domicilio %>
+    </div>
+
+    <div class="field">
+      <%= paciente_fields.label :civil %>
+      <%= paciente_fields.text_field :civil %>
+    </div>
+
+    <div class="field">
+      <%= paciente_fields.label :nss %>
+      <%= paciente_fields.text_field :nss %>
+    </div>
+
+    <div class="field">
+      <%= paciente_fields.label :edad %>
+      <%= paciente_fields.number_field :edad %>
+    </div>
+
+    <div class="field">
+      <%= paciente_fields.label :peso %>
+      <%= paciente_fields.text_field :peso %>
+    </div>
+
+    <div class="field">
+      <%= paciente_fields.label :talla %>
+      <%= paciente_fields.text_field :talla %>
+    </div>
+
+    <div class="field">
+      <%= paciente_fields.label :imc %>
+      <%= paciente_fields.text_field :imc %>
+    </div>
+
+    <div class="field">
+      <%= paciente_fields.label :t_sangre %>
+      <%= paciente_fields.text_field :t_sangre %>
+    </div>
+  <% end %>
+  <div class="actions">
+    <%= persona.submit %>
+  </div>
+<% end %>

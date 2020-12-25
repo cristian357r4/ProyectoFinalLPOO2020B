@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_24_083226) do
+ActiveRecord::Schema.define(version: 2020_12_25_035835) do
 
   create_table "nutriologos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.string "cedula"
@@ -31,6 +31,8 @@ ActiveRecord::Schema.define(version: 2020_12_24_083226) do
     t.string "t_sangre"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "nutriologo_id"
+    t.index ["nutriologo_id"], name: "fk_rails_1721da2f91"
   end
 
   create_table "personas", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
@@ -47,4 +49,5 @@ ActiveRecord::Schema.define(version: 2020_12_24_083226) do
     t.index ["perstable_type", "perstable_id"], name: "index_personas_on_perstable_type_and_perstable_id"
   end
 
+  add_foreign_key "pacientes", "nutriologos"
 end
