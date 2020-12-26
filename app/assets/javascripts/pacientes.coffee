@@ -13,3 +13,8 @@ ready = ->
 
 $(document).ready(ready)
 $(document).on('turbolinks:load', ready)
+
+data = ->
+    tables = $('#pdttb').dataTable()
+$(document).ready(data)
+$(document).on('turbolinks:load',data)

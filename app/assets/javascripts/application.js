@@ -16,6 +16,7 @@
 //= require bootstrap
 //= require jquery.validate
 //= require jquery.validate.additional-methods
+//= require datatables
 //= require activestorage
 //= require turbolinks
 //= require_tree .
