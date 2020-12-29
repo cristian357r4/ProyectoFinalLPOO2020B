@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_25_035835) do
+ActiveRecord::Schema.define(version: 2020_12_29_085716) do
 
   create_table "nutriologos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.string "cedula"
     t.string "login"
+    t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "password_digest"
   end
 
   create_table "pacientes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
@@ -47,6 +47,13 @@ ActiveRecord::Schema.define(version: 2020_12_25_035835) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["perstable_type", "perstable_id"], name: "index_personas_on_perstable_type_and_perstable_id"
+  end
+
+  create_table "tests", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
+    t.string "campo1"
+    t.string "campo2"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "pacientes", "nutriologos"

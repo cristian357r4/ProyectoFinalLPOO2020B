@@ -1,0 +1,19 @@
+<h1>Personas</h1>
+
+<table class="responsive nowrap table table-hover" id="dttb-personas" data-sort="true" data-source="<%= url_for(format: :json)%>">
+  <thead>
+    <tr>
+      <th data-data="nombre">Nombre</th>
+      <th data-data="paterno">Paterno</th>
+      <th data-data="materno">Materno</th>
+      <th data-data="sexo">Sexo</th>
+      <th data-data="telefono">Telefono</th>
+      <th data-data="url" data-orderable="false" data-class-name="all" data-searchable="false" class="skip-export" width="100px">Acciones</th>
+    </tr>
+  </thead>
+
+</table>
+
+<br>
+
+<%= link_to 'Nuevo Persona', new_persona_path, class: 'btn btn-primary btn-icon-split btn-lg' %>

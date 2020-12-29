@@ -26,6 +26,9 @@
 $.extend( $.fn.dataTable.defaults, {
   responsive: true,
   pagingType: 'full',
+  language: {
+        url: '//cdn.datatables.net/plug-ins/1.10.22/i18n/Spanish.json'
+  }
   //dom:
   //  "<'row'<'col-sm-4 text-left'f><'right-action col-sm-8 text-right'<'buttons'B> <'select-info'> >>" +
   //  "<'row'<'dttb col-12 px-0'tr>>" +

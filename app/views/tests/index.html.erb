@@ -1,0 +1,16 @@
+<h1>Tests</h1>
+
+<table class="responsive nowrap table table-hover" id="dttb-tests" data-sort="true" data-source="<%= url_for(format: :json)%>">
+  <thead>
+    <tr>
+      <th data-data="campo1">Campo1</th>
+      <th data-data="campo2">Campo2</th>
+      <th data-data="url" data-orderable="false" data-class-name="all" data-searchable="false" class="skip-export" width="100px">Acciones</th>
+    </tr>
+  </thead>
+
+</table>
+
+<br>
+
+<%= link_to 'Nuevo Test', new_test_path %>
