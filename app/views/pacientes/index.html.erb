@@ -1,46 +1,60 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Pacientes</h1>
-<div class="container container-fluid">
-  <table id="pdttb" class="table table-hover">
-    <thead>
-      <tr>
-        <th>Domicilio</th>
-        <th>Civil</th>
-        <th>Nss</th>
-        <th>Edad</th>
-        <th>Peso</th>
-        <th>Talla</th>
-        <th>Imc</th>
-        <th>T sangre</th>
-        <th>Ver</th>
-        <th>Editar</th>
-        <th>Eliminar</th>
-      </tr>
-    </thead>
+<h1 class="h3 mb-2 text-gray-800">Pacientes</h1>
 
-    <tbody>
-      <% @pacientes.each do |paciente| %>
-        <tr>
-          <td><%= paciente.domicilio %></td>
-          <td><%= paciente.civil %></td>
-          <td><%= paciente.nss %></td>
-          <td><%= paciente.edad %></td>
-          <td><%= paciente.peso %></td>
-          <td><%= paciente.talla %></td>
-          <td><%= paciente.imc %></td>
-          <td><%= paciente.t_sangre %></td>
-          <td><%= link_to 'Show', paciente %></td>
-          <td><%= link_to 'Edit', edit_paciente_path(paciente) %></td>
-          <td><%= link_to 'Destroy', paciente, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+<div class="card shadow mb-4">
+  <div class="card-header py3">
+    <h6 class="m-0 font-weight-bold text-primary">Informacion de Pacientes</h6>
+  </div>
+
+  <div class="card-body">
+    <div class="table-responsive">
+      <table id="pdttb" class="table table-bordered" width="100%" cellspacing="0">
+        <thead>
+          <tr>
+            <th>Domicilio</th>
+            <th>Civil</th>
+            <th>Nss</th>
+            <th>Edad</th>
+            <th>Peso</th>
+            <th>Talla</th>
+            <th>Imc</th>
+            <th>T sangre</th>
+            <th>Ver</th>
+            <th>Editar</th>
+            <th>Eliminar</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @pacientes.each do |paciente| %>
+            <tr>
+              <td><%= paciente.domicilio %></td>
+              <td><%= paciente.civil %></td>
+              <td><%= paciente.nss %></td>
+              <td><%= paciente.edad %></td>
+              <td><%= paciente.peso %></td>
+              <td><%= paciente.talla %></td>
+              <td><%= paciente.imc %></td>
+              <td><%= paciente.t_sangre %></td>
+              <td><%= link_to 'Mostrar', paciente %></td>
+              <td><%= link_to 'Editar', edit_paciente_path(paciente) %></td>
+              <td><%= link_to 'Eliminar', paciente, method: :delete, data: { confirm: 'Estas Seguro?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+
+    </div>
+  </div>
+
+  <%= link_to 'Nuevo Paciente', new_paciente_path, class: 'btn btn-primary btn-icon-split btn-lg' %>
+
 </div>
 <br>
 
-<%= link_to 'New Paciente', new_paciente_path %>
+
 <script type="text/javascript">
   $(document).ready(function(){
       $('#pdttb').DataTable({

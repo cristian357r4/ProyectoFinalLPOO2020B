@@ -17,6 +17,7 @@
 //= require jquery.validate
 //= require jquery.validate.additional-methods
 //= require datatables
+//= require sb-admin-2
 //= require activestorage
 //= require turbolinks
 //= require_tree .
