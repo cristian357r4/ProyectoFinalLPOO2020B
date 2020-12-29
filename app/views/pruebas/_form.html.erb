@@ -1,0 +1,32 @@
+<%= form_with(model: prueba, local: true) do |form| %>
+  <% if prueba.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(prueba.errors.count, "error") %> prohibited this prueba from being saved:</h2>
+
+      <ul>
+      <% prueba.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :primer %>
+    <%= form.text_field :primer %>
+  </div>
+
+  <div class="field">
+    <%= form.label :segundo %>
+    <%= form.text_field :segundo %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tercer %>
+    <%= form.text_field :tercer %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
