@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_29_210125) do
+ActiveRecord::Schema.define(version: 2020_12_29_231401) do
 
   create_table "actividades", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.bigint "paciente_id"
@@ -160,7 +160,7 @@ ActiveRecord::Schema.define(version: 2020_12_29_210125) do
     t.index ["paciente_id"], name: "index_plansuplementos_on_paciente_id", unique: true
     t.index ["suplemento_id"], name: "index_plansuplementos_on_suplemento_id", unique: true
   end
-
+  #cuestionario sera tipo 1 aveces 2 de ves en cuando etc.....
   create_table "problemas", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.boolean "diarrea"
     t.boolean "nauseas"
@@ -175,9 +175,9 @@ ActiveRecord::Schema.define(version: 2020_12_29_210125) do
   end
 
   create_table "pruebas", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
-    t.string "primer"
-    t.string "segundo"
-    t.string "tercer"
+    t.string "capo1"
+    t.string "campo2"
+    t.string "campo3"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -219,13 +219,6 @@ ActiveRecord::Schema.define(version: 2020_12_29_210125) do
     t.float "precio"
     t.text "contenido"
     t.text "informacion"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "tests", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
-    t.string "campo1"
-    t.string "campo2"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

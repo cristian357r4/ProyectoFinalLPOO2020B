@@ -1,17 +1,25 @@
 <h1><%= plural_table_name.titleize %></h1>
 
-<table class="responsive nowrap table table-hover" id="dttb-<%= plural_table_name %>" data-sort="true" data-source="<%%= url_for(format: :json)%>">
-  <thead>
-    <tr>
-<% attributes.reject(&:password_digest?).each do |attribute| -%>
-      <th data-data="<%= attribute.name %>"><%= attribute.human_name %></th>
-<% end -%>
-      <th data-data="url" data-orderable="false" data-class-name="all" data-searchable="false" class="skip-export" width="100px">Acciones</th>
-    </tr>
-  </thead>
+<div class="card shadow mb-4">
+  <div class="card-header py3">
+    <h6 class="m-0 font-weight-bold text-primary">Detalle de <%= plural_table_name.titleize %></h6>
+  </div>
 
-</table>
-
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="responsive nowrap table table-hover" id="dttb-<%= plural_table_name %>" data-sort="true" data-source="<%%= url_for(format: :json)%>">
+        <thead>
+          <tr>
+            <% attributes.reject(&:password_digest?).each do |attribute| -%>
+              <th data-data="<%= attribute.name %>"><%= attribute.human_name %></th>
+            <% end -%>
+            <th data-data="url" data-orderable="false" data-class-name="all" data-searchable="false" class="skip-export" width="100px">Acciones</th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+  </div>
+  <%%= link_to 'Nuevo <%= singular_table_name.titleize %>', new_<%= singular_route_name %>_path , class: 'btn btn-primary'%>
+</div>
 <br>
 
-<%%= link_to 'Nuevo <%= singular_table_name.titleize %>', new_<%= singular_route_name %>_path , class: 'btn btn-primary'%>
