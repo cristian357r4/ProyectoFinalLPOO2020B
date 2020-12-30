@@ -1,0 +1,2 @@
+module SignosHelper
+end

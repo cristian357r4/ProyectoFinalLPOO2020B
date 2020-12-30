@@ -1,0 +1,57 @@
+<%= form_with(model: signo, local: true) do |form| %>
+  <% if signo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(signo.errors.count, "error") %> prohibited this signo from being saved:</h2>
+
+      <ul>
+      <% signo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :cabello %>
+    <%= form.text_field :cabello %>
+  </div>
+
+  <div class="field">
+    <%= form.label :piel %>
+    <%= form.text_field :piel %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nails %>
+    <%= form.text_field :nails %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ojos %>
+    <%= form.text_field :ojos %>
+  </div>
+
+  <div class="field">
+    <%= form.label :peso_corporal %>
+    <%= form.text_field :peso_corporal %>
+  </div>
+
+  <div class="field">
+    <%= form.label :presion_sanguinea %>
+    <%= form.text_field :presion_sanguinea %>
+  </div>
+
+  <div class="field">
+    <%= form.label :frecuencia_respiratoria %>
+    <%= form.text_field :frecuencia_respiratoria %>
+  </div>
+
+  <div class="field">
+    <%= form.label :frecuencia_cardiaca %>
+    <%= form.text_field :frecuencia_cardiaca %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

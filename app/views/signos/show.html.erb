@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Cabello:</strong>
+  <%= @signo.cabello %>
+</p>
+
+<p>
+  <strong>Piel:</strong>
+  <%= @signo.piel %>
+</p>
+
+<p>
+  <strong>Nails:</strong>
+  <%= @signo.nails %>
+</p>
+
+<p>
+  <strong>Ojos:</strong>
+  <%= @signo.ojos %>
+</p>
+
+<p>
+  <strong>Peso corporal:</strong>
+  <%= @signo.peso_corporal %>
+</p>
+
+<p>
+  <strong>Presion sanguinea:</strong>
+  <%= @signo.presion_sanguinea %>
+</p>
+
+<p>
+  <strong>Frecuencia respiratoria:</strong>
+  <%= @signo.frecuencia_respiratoria %>
+</p>
+
+<p>
+  <strong>Frecuencia cardiaca:</strong>
+  <%= @signo.frecuencia_cardiaca %>
+</p>
+
+<%= link_to 'Edit', edit_signo_path(@signo) %> |
+<%= link_to 'Back', signos_path %>

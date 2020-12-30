@@ -1,0 +1,57 @@
+<%= form_with(model: problema, local: true) do |form| %>
+  <% if problema.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(problema.errors.count, "error") %> prohibited this problema from being saved:</h2>
+
+      <ul>
+      <% problema.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :diarrea %>
+    <%= form.text_field :diarrea %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nauseas %>
+    <%= form.text_field :nauseas %>
+  </div>
+
+  <div class="field">
+    <%= form.label :obesidad %>
+    <%= form.text_field :obesidad %>
+  </div>
+
+  <div class="field">
+    <%= form.label :estrenimiento %>
+    <%= form.text_field :estrenimiento %>
+  </div>
+
+  <div class="field">
+    <%= form.label :gastritis %>
+    <%= form.text_field :gastritis %>
+  </div>
+
+  <div class="field">
+    <%= form.label :vomito %>
+    <%= form.text_field :vomito %>
+  </div>
+
+  <div class="field">
+    <%= form.label :insomnio %>
+    <%= form.text_field :insomnio %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ansiedad %>
+    <%= form.text_field :ansiedad %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  diarrea: MyString
+  nauseas: MyString
+  obesidad: MyString
+  estrenimiento: MyString
+  gastritis: MyString
+  vomito: MyString
+  insomnio: MyString
+  ansiedad: MyString
+
+two:
+  diarrea: MyString
+  nauseas: MyString
+  obesidad: MyString
+  estrenimiento: MyString
+  gastritis: MyString
+  vomito: MyString
+  insomnio: MyString
+  ansiedad: MyString

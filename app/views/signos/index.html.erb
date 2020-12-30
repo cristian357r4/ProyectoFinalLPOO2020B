@@ -1,0 +1,30 @@
+<h1>Signos</h1>
+
+<div class="card shadow mb-4">
+  <div class="card-header py3">
+    <h6 class="m-0 font-weight-bold text-primary">Detalle de Signos</h6>
+  </div>
+
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="responsive nowrap table table-hover" id="dttb-signos" data-sort="true" data-source="<%= url_for(format: :json)%>">
+        <thead>
+          <tr>
+                          <th data-data="cabello">Cabello</th>
+                          <th data-data="piel">Piel</th>
+                          <th data-data="nails">Nails</th>
+                          <th data-data="ojos">Ojos</th>
+                          <th data-data="peso_corporal">Peso corporal</th>
+                          <th data-data="presion_sanguinea">Presion sanguinea</th>
+                          <th data-data="frecuencia_respiratoria">Frecuencia respiratoria</th>
+                          <th data-data="frecuencia_cardiaca">Frecuencia cardiaca</th>
+                        <th data-data="url" data-orderable="false" data-class-name="all" data-searchable="false" class="skip-export" width="100px">Acciones</th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+  </div>
+  <%= link_to 'Nuevo Signo', new_signo_path , class: 'btn btn-primary'%>
+</div>
+<br>
+

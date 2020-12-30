@@ -1,0 +1,2 @@
+class Signo < ApplicationRecord
+end

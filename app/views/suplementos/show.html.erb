@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @suplemento.nombre %>
+</p>
+
+<p>
+  <strong>Marca:</strong>
+  <%= @suplemento.marca %>
+</p>
+
+<p>
+  <strong>Formato:</strong>
+  <%= @suplemento.formato %>
+</p>
+
+<p>
+  <strong>Peso producto:</strong>
+  <%= @suplemento.peso_producto %>
+</p>
+
+<p>
+  <strong>No servicios:</strong>
+  <%= @suplemento.no_servicios %>
+</p>
+
+<p>
+  <strong>Precio:</strong>
+  <%= @suplemento.precio %>
+</p>
+
+<p>
+  <strong>Contenido:</strong>
+  <%= @suplemento.contenido %>
+</p>
+
+<p>
+  <strong>Informacion:</strong>
+  <%= @suplemento.informacion %>
+</p>
+
+<%= link_to 'Edit', edit_suplemento_path(@suplemento) %> |
+<%= link_to 'Back', suplementos_path %>
