@@ -1,0 +1,50 @@
+<% paciente = Paciente.find(params[:paciente_id])
+   @persona = paciente.personas.last
+%>
+<p>Nombre del Paciente: <%=  @persona.full_name%> </p>
+<hr>
+<% @quimicas.each do |quimica| %>
+  <table>
+    <tr>
+      <th>Nitrogenourea</th>
+      <td><%= quimica.nitrogenourea %></td>
+    </tr>
+    <tr>
+      <th>Glucosa</th>
+      <td><%= quimica.glucosa %></td>
+    </tr>
+    <tr>
+      <th>Creatina</th>
+      <td><%= quimica.creatina %></td>
+    </tr>
+    <tr>
+      <th>Acido Urico</th>
+      <td><%= quimica.acido_urico %></td>
+    </tr>
+    <tr>
+      <th>Trigliceridos</th>
+      <td><%= quimica.trigliceridos %></td>
+    </tr>
+    <tr>
+      <th>Colesterol</th>
+      <td><%= quimica.colesterol %></td>
+    </tr>
+    <tr>
+      <th>Bilirrubina</th>
+      <td><%= quimica.bilirrubina %></td>
+    </tr>
+    <tr>
+      <th>Fecha de Registro</th>
+      <td><%= quimica.created_at.strftime("%Y-%m-%d")%></td>
+    </tr>
+    <tr>
+      <th><%= link_to 'Modificar', edit_quimica_path(quimica.id), class: 'btn btn-primary' %></th>
+    </tr>
+    <tr>
+      <th><%= link_to 'Eliminar', eliminar_quimica_path(quimica.id,paciente_id: quimica.paciente_id), method: :delete, data: { confirm: 'Estas Seguro'}, class: 'btn btn-danger' %></th>
+    </tr>
+  </table>
+  <hr>
+<% end %>
+<%= link_to 'Agregar Registro', new_quimica_path(params[:paciente_id]), class: 'btn btn-primary' %>
+<%= link_to "Volver", mostrar_paciente_path(@persona.id) , class: 'btn btn-success'%>

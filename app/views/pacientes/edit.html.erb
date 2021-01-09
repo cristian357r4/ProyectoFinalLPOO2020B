@@ -1,6 +1,78 @@
 <h1>Editing Paciente</h1>
 
-<%= render 'form', paciente: @paciente %>
+<%= form_with(model: [@persona_edit, @paciente_edit], id: 'formulario_pacientes', url: paciente_path, local: true) do |personal| %>
 
-<%= link_to 'Show', @paciente %> |
+  <%= personal.fields_for @persona_edit do  |persona| %>
+    <div class="form-group">
+      <%= persona.hidden_field :id %>
+      <%= persona.text_field :nombre, placeholder: "Introduzaca su Nombre"%>
+    </div>
+
+    <div class="form-group">
+      <%= persona.text_field :paterno, placeholder: "Paterno"%>
+    </div>
+
+    <div class="form-group">
+      <%= persona.text_field :materno, placeholder: "Materno"%>
+    </div>
+
+    <div class="form-group">
+      <%= persona.select :sexo, options_for_select([["Seleccione uno",nil], %w[Hombre H], %w[Mujer M], %w[Otro O]])%>
+    </div>
+
+    <div class="form-group">
+      <%= persona.telephone_field(:telefono, placeholder: "telefono")%>
+    </div>
+
+    <div class="form-group">
+      <%= persona.email_field(:correo) %>
+    </div>
+    <%= persona.fields_for @paciente_edit do |paciente_fields| %>
+
+      <div class="field">
+        <%= paciente_fields.label :domicilio %>
+        <%= paciente_fields.text_field :domicilio %>
+      </div>
+
+      <div class="field">
+        <%= paciente_fields.label :civil %>
+        <%= paciente_fields.text_field :civil %>
+      </div>
+
+      <div class="field">
+        <%= paciente_fields.label :nss %>
+        <%= paciente_fields.text_field :nss %>
+      </div>
+
+      <div class="field">
+        <%= paciente_fields.label :edad %>
+        <%= paciente_fields.number_field :edad %>
+      </div>
+
+      <div class="field">
+        <%= paciente_fields.label :peso %>
+        <%= paciente_fields.text_field :peso %>
+      </div>
+
+      <div class="field">
+        <%= paciente_fields.label :talla %>
+        <%= paciente_fields.text_field :talla %>
+      </div>
+
+      <div class="field">
+        <%= paciente_fields.label :imc %>
+        <%= paciente_fields.text_field :imc %>
+      </div>
+
+      <div class="field">
+        <%= paciente_fields.label :t_sangre %>
+        <%= paciente_fields.text_field :t_sangre %>
+      </div>
+    <% end %>
+    <div class="actions">
+      <%= persona.submit %>
+    </div>
+  <% end %>
+<% end %>
+
 <%= link_to 'Back', pacientes_path %>

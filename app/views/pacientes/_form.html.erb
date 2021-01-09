@@ -13,7 +13,8 @@
   </div>
 
   <div class="form-group">
-    <%= persona.select :sexo, options_for_select([["Seleccione uno",nil],["Hombre","H"], ["Mujer","M"],["Otro","O"]])%>
+    <%= persona.label :sexo%><br>
+    <%= persona.select :sexo, options_for_select([["Seleccione uno",nil], %w[Hombre H], %w[Mujer M], %w[Otro O]])%>
   </div>
 
   <div class="form-group">
@@ -21,51 +22,52 @@
   </div>
 
   <div class="form-group">
-    <%= persona.email_field(:correo) %>
+    <%= persona.email_field(:correo, placeholder: "correo") %>
   </div>
   <%= persona.fields_for :paciente do |paciente_fields| %>
 
-    <div class="field">
-      <%= paciente_fields.label :domicilio %>
-      <%= paciente_fields.text_field :domicilio %>
+    <div class="form-group">
+      <%= paciente_fields.text_field :domicilio ,placeholder: "domicilio"%>
     </div>
 
-    <div class="field">
-      <%= paciente_fields.label :civil %>
-      <%= paciente_fields.text_field :civil %>
+    <div class="form-group">
+      <%= paciente_fields.label "Estado civil" %><br>
+      <%= paciente_fields.select :civil,options_for_select([["Seleccione uno", nil], %w[Soltero Soltero], %w[Casado Casado], %w[Divorciado Divorciado]]) %>
     </div>
 
-    <div class="field">
-      <%= paciente_fields.label :nss %>
-      <%= paciente_fields.text_field :nss %>
+    <div class="form-group">
+      <%= paciente_fields.label "Numero de Seguro Social" %><br>
+      <%= paciente_fields.text_field :nss , placeholder: "NSS"%>
     </div>
 
-    <div class="field">
-      <%= paciente_fields.label :edad %>
-      <%= paciente_fields.number_field :edad %>
+    <div class="form-group">
+      <%= paciente_fields.number_field :edad, placeholder: "Edad"%>
     </div>
 
-    <div class="field">
-      <%= paciente_fields.label :peso %>
-      <%= paciente_fields.text_field :peso %>
+    <div class="form-group">
+      <%= paciente_fields.text_field :peso, placeholder: "Peso en Kg" %>
     </div>
 
-    <div class="field">
-      <%= paciente_fields.label :talla %>
-      <%= paciente_fields.text_field :talla %>
+    <div class="form-group">
+      <%= paciente_fields.label "Estatura en cm"%><br>
+      <%= paciente_fields.text_field :talla, placeholder: "Estatura en cm ex: 170" %>
     </div>
 
-    <div class="field">
-      <%= paciente_fields.label :imc %>
-      <%= paciente_fields.text_field :imc %>
+    <div class="form-group">
+      <%= paciente_fields.label "Indice de masa corporal:"%><br>
+      <%= paciente_fields.number_field :imc %>
     </div>
 
-    <div class="field">
-      <%= paciente_fields.label :t_sangre %>
-      <%= paciente_fields.text_field :t_sangre %>
+    <div class="form-group">
+      <%= paciente_fields.label "Tipo de sangre"%><br>
+      <%= paciente_fields.select :t_sangre, options_for_select([["Seleccione uno",nil], ["O negrativo","O negativo"],
+                                                                ["O positivo","O positivo"],["A negativo","A negativo"], ["A positivo","A positivo"],
+                                                                ["B negativo","B negativo"], ["B positivo","B positivo"], ["AB negativo","AB negativo"],
+                                                                ["AB positivo","AB positivo"]])%>
     </div>
   <% end %>
+  <br>
   <div class="actions">
-    <%= persona.submit %>
+    <%= persona.submit 'Crear', class: 'btn btn-primary'%>
   </div>
 <% end %>

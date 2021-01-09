@@ -1,0 +1,38 @@
+<%= form_with(model: quimica, id: 'formulario_quimica', url: create_quimica_path, local: true) do |quimica|%>
+  <%= quimica.hidden_field(:paciente_id, :value => params[:paciente_id]) %>
+  <div class="form-group">
+    <%= quimica.label "Niveles de nitrogenourea" %><br>
+    <%= quimica.number_field :nitrogenourea %>
+  </div>
+  <div class="form-group">
+    <%= quimica.label "Niveles de glucosa" %><br>
+    <%= quimica.number_field :glucosa%>
+  </div>
+  <div class="form-group">
+    <%= quimica.label "Niveles de creatina" %><br>
+    <%= quimica.number_field :creatina%>
+  </div>
+  <div class="form-group">
+    <%= quimica.label "Niveles de acido urico" %><br>
+    <%= quimica.number_field :acido_urico%>
+  </div>
+  <div class="form-group">
+    <%= quimica.label "Niveles de trigliceridos" %><br>
+    <%= quimica.number_field :trigliceridos%>
+  </div>
+  <div class="form-group">
+    <%= quimica.label "Niveles de colesterol" %><br>
+    <%= quimica.number_field :colesterol%>
+  </div>
+  <div class="form-group">
+    <%= quimica.label "Niveles de bilirunbina" %><br>
+    <%= quimica.number_field :bilirrubina%>
+  </div>
+  <div class="form-group">
+    <%= quimica.label "Niveles de DHL" %><br>
+    <%= quimica.number_field :dhl%>
+  </div>
+  <div class="actions">
+    <%= quimica.submit "Guardar datos", class: "btn btn-primary" %>
+  </div>
+<% end %>

@@ -1,5 +1,4 @@
-<%# TODO Agregar estilos al formulario de registro y pasar el formulario a las carpetas que correspondan%>
-<h1> Hola mundo</h3>
+<h3> Hola mundo</h3>
 <%= form_with(model: @persona,url: guardar_nutriologo_path ,local: true ) do |persona| %>
   <div class="form-group">
     <%= persona.text_field :nombre, placeholder: "Introduzaca su Nombre"%>

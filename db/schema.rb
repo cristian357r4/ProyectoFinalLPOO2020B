@@ -189,7 +189,7 @@ ActiveRecord::Schema.define(version: 2020_12_29_231401) do
     t.float "creatina"
     t.float "acido_urico"
     t.float "trigliceridos"
-    t.float "colsesterol"
+    t.float "colesterol"
     t.float "bilirrubina"
     t.float "dhl"
     t.datetime "created_at", null: false
