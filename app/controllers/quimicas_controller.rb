@@ -47,7 +47,7 @@ class QuimicasController < ApplicationController
   def update
     respond_to do |format|
       if @quimica.update(quimica_params)
-        format.html { redirect_to index_quimica_path(params[:quimica][:paciente_id]), notice: 'Quimica was successfully updated.' }
+        format.html { redirect_to index_quimica_path(params[:quimica][:paciente_id]), notice: 'Quimica se actualizo correctamente.' }
       else
         format.html { render :edit }
         format.json { render json: @quimica.errors, status: :unprocessable_entity }
@@ -60,7 +60,7 @@ class QuimicasController < ApplicationController
   def destroy
     @quimica.destroy
     respond_to do |format|
-      format.html { redirect_to index_quimica_path(params[:paciente_id]), notice: 'Quimica was successfully destroyed.' }
+      format.html { redirect_to index_quimica_path(params[:paciente_id]), notice: 'Quimica se Elimino Correctamente.' }
       format.json { head :no_content }
     end
   end
