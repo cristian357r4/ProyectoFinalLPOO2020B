@@ -1,0 +1,138 @@
+<%= form_with(model: habito, id: 'formulario_habito', url: url, local: true) do |habito|%>
+  <%= habito.hidden_field(:paciente_id, :value => params[:paciente_id]) %>
+  <div class="form-group">
+    <%= habito.label "Frecuencia con la que consume tabaco" %><br>
+    <div class="row">
+      <div class="col-2">
+        <%= habito.radio_button :tabaco, 0, :checked => true %> No consume
+      </div>
+      <div class="col-2">
+        <%= habito.radio_button :tabaco, 1%> Una vez por semana
+      </div>
+      <div class="col-2">
+        <%= habito.radio_button :tabaco, 2%> Dos veces por semana
+      </div>
+      <div class="col-2">
+        <%= habito.radio_button :tabaco, 3%> Tres veces por semana
+      </div>
+      <div class="col-2">
+        <%= habito.radio_button :tabaco, 4%> Cuatro veces por semana
+      </div>
+      <div class="col-2">
+        <%= habito.radio_button :tabaco, 5%> Cinco veces o mas
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= habito.label "Frecuencia con la que consume alcohol" %><br>
+    <div class="row">
+      <div class="col-2">
+        <%= habito.radio_button :alcohol, 0, :checked => true %> No consume
+      </div>
+      <div class="col-2">
+        <%= habito.radio_button :alcohol, 1%> Una vez por semana
+      </div>
+      <div class="col-2">
+        <%= habito.radio_button :alcohol, 2%> Dos veces por semana
+      </div>
+      <div class="col-2">
+        <%= habito.radio_button :alcohol, 3%> Tres veces por semana
+      </div>
+      <div class="col-2">
+        <%= habito.radio_button :alcohol, 4%> Cuatro veces por semana
+      </div>
+      <div class="col-2">
+        <%= habito.radio_button :alcohol, 5%> Cinco veces o mas
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= habito.label "Consume alguna sustancia adictiva legal ademas de las mencionadas con anterioridad?" %><br>
+    <%= habito.text_field(:otros, size: 80) %>
+  </div>
+  <div class="form-group ">
+    <%= habito.label "Que ha consumido hoy?" %><br>
+    <div class="row">
+      <div class="col-2">
+        <%= habito.radio_button :preferida, 0, :checked => true%>Ninguna
+      </div>
+      <div class="col-2">
+        <%= habito.radio_button :preferida,1%>Alcohol
+      </div>
+      <div class="col-2">
+        <%= habito.radio_button :preferida,2%>Tabaco
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= habito.label "Hace cuanto tiempo que empezo a consumir la sustancia marcada en la pregunta anterior?" %> <br>
+    <div class="row">
+      <div class="col-3">
+        <%= habito.radio_button :tiempo_consumo, 0 , :checked => true%>No consume
+      </div>
+      <div class="col-3">
+        <%= habito.radio_button :tiempo_consumo, 1 %>Menos de una semana
+      </div>
+      <div class="col-3">
+        <%= habito.radio_button :tiempo_consumo, 2 %>Entre una semana y un mes
+      </div>
+      <div class="col-3">
+        <%= habito.radio_button :tiempo_consumo,3 %>Entre un mes y seis meses
+      </div>
+      <div class="col-3">
+        <%= habito.radio_button :tiempo_consumo,4 %>Mas de seis Meses
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= habito.label "Cuantas horas en promedio duereme en una semana?" %><br>
+    <div class="row">
+      <div class="col-2">
+        <%= habito.radio_button :average_dream, 0, :checked => true%>Entre 35 y 42
+      </div>
+      <div class="col-2">
+        <%= habito.radio_button :average_dream,1%>Entre 43 y 56
+      </div>
+      <div class="col-2">
+        <%= habito.radio_button :average_dream,2%>Entre 57 y 84
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= habito.label "En promedio cuantos litros de agua consume al dia?"%><br>
+    <div class="row">
+      <div class="col-3">
+        <%= habito.radio_button :cantidad_agua, 0, :checked => true%>Menos de Un litro
+      </div>
+      <div class="col-3">
+        <%= habito.radio_button :cantidad_agua, 1 %>Entre un litro y dos litros
+      </div>
+      <div class="col-3">
+        <%= habito.radio_button :cantidad_agua, 2 %>Mas de dos litros
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= habito.label "Cuantas comidas hace al dia en promedio a la semana?"%><br>
+    <div class="row">
+      <div class="col-3">
+        <%= habito.radio_button :numero_comidas, 1, :checked => true%>Una comida al dia
+      </div>
+      <div class="col-3">
+        <%= habito.radio_button :numero_comidas, 2 %>Dos comidas
+      </div>
+      <div class="col-3">
+        <%= habito.radio_button :numero_comidas, 3 %>Tres comidas
+      </div>
+      <div class="col-3">
+        <%= habito.radio_button :numero_comidas, 4 %>Cuatro comidas
+      </div>
+      <div class="col-3">
+        <%= habito.radio_button :numero_comidas, 5 %>Cinco comidas o mas
+      </div>
+    </div>
+  </div>
+  <div class="actions">
+    <%= habito.submit "Guardar datos", class: "btn btn-primary" %>
+  </div>
+<% end %>

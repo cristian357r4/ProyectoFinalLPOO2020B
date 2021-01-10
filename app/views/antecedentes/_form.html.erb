@@ -1,0 +1,108 @@
+<%= form_with(model: antecedente, id: 'formulario_antecedente', url: url, local: true) do |antecedente|%>
+  <%= antecedente.hidden_field(:paciente_id, :value => params[:paciente_id]) %>
+  <div class="form-group">
+    <%= antecedente.label "El paciente padece o tiene antecedentes familiares de diabetes?" %><br>
+    <div class="row">
+      <div class="col-2">
+        <%= antecedente.radio_button :diabetes, 0, :checked => true %> No
+      </div>
+      <div class="col-2">
+        <%= antecedente.radio_button :diabetes, 1%> Lo padece
+      </div>
+      <div class="col-2">
+        <%= antecedente.radio_button :diabetes, 2%> Hay antecedentes familiares
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= antecedente.label "El paciente padece o tiene antecedentes familiares de obesidad?" %><br>
+    <div class="row">
+      <div class="col-2">
+        <%= antecedente.radio_button :obesidad, 0, :checked => true %> No
+      </div>
+      <div class="col-2">
+        <%= antecedente.radio_button :obesidad, 1%> Lo padece
+      </div>
+      <div class="col-2">
+        <%= antecedente.radio_button :obesidad, 2%> Hay antecedentes familiares
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= antecedente.label "El paciente padece o padecio Hipertrigliceridemia?" %><br>
+    <div class="row">
+      <div class="col-2">
+        <%= antecedente.radio_button :htrigli, 0, :checked => true %> No
+      </div>
+      <div class="col-2">
+        <%= antecedente.radio_button :htrigli, 1%> Lo padece
+      </div>
+      <div class="col-2">
+        <%= antecedente.radio_button :htrigli, 2%> No sabe
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= antecedente.label "El paciente padece o tiene antecedentes familiares de Hipercolesterolemia?" %><br>
+    <div class="row">
+      <div class="col-2">
+        <%= antecedente.radio_button :hcolesterol, 0, :checked => true %> No
+      </div>
+      <div class="col-2">
+        <%= antecedente.radio_button :hcolesterol, 1%> Lo padece
+      </div>
+      <div class="col-2">
+        <%= antecedente.radio_button :hcolesterol, 2%> Hay antecedentes familiares
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= antecedente.label "El paciente padece o tiene antecedentes familiares de cancer?" %><br>
+    <div class="row">
+      <div class="col-2">
+        <%= antecedente.radio_button :cancer, 0, :checked => true %> No
+      </div>
+      <div class="col-2">
+        <%= antecedente.radio_button :cancer, 1%> Lo padece
+      </div>
+      <div class="col-2">
+        <%= antecedente.radio_button :cancer, 2%> Hay antecedentes familiares
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= antecedente.label "El paciente padece o padecio Hipertension?" %><br>
+    <div class="row">
+      <div class="col-2">
+        <%= antecedente.radio_button :hipertension, 0, :checked => true %> No
+      </div>
+      <div class="col-2">
+        <%= antecedente.radio_button :hipertension, 1%> Lo padece
+      </div>
+      <div class="col-2">
+        <%= antecedente.radio_button :hipertension, 2%> No sabe
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= antecedente.label "El paciente padece o tiene antecedentes familiares de gota?" %><br>
+    <div class="row">
+      <div class="col-2">
+        <%= antecedente.radio_button :gota, 0, :checked => true %> No
+      </div>
+      <div class="col-2">
+        <%= antecedente.radio_button :gota, 1%> Lo padece
+      </div>
+      <div class="col-2">
+        <%= antecedente.radio_button :gota, 2%> Hay antecedentes familiares
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= antecedente.label "El paciente tiene alguna enfermedad cronica o en su familia hay alguna enfermedad cronica? Especifique" %><br>
+    <%= antecedente.text_field(:otro, size:80, placeholder: 'Dejar vacio si no aplica') %>
+  </div>
+  <div class="actions">
+    <%= antecedente.submit "Guardar datos", class: "btn btn-primary" %>
+  </div>
+<% end %>

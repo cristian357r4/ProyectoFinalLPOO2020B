@@ -1,0 +1,3 @@
+<h1>Registro de Habitos de Salud</h1>
+<%= render 'form', habito: @habito, url: create_habito_path %>
+<%= link_to 'Regresar', index_habito_path(params[:paciente_id], class: 'btn btn-info') %>

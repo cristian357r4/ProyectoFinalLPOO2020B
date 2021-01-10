@@ -1,0 +1,104 @@
+<% paciente = Paciente.find(params[:paciente_id])
+   @persona = paciente.personas.last
+%>
+<p>Nombre del Paciente: <%=  @persona.full_name%> </p>
+<hr>
+<div class="col-md-9">
+  <% @antecedentes.each do |antecedente| %>
+    <table class="table table-bordered">
+      <tr>
+        <th> El paciente padece o tiene antecedentes de diabetes en su familia?</th>
+        <% if antecedente.diabetes == 0 %>
+          <td>No</td>
+        <% elsif antecedente.diabetes == 1 %>
+          <td>Lo padece</td>
+        <% elsif antecedente.diabetes == 2 %>
+          <td>Hay antecedentes familiares</td>
+        <% end %>
+      </tr>
+      <tr>
+        <th> El paciente padece o tiene antecedentes de obesidad en su familia?</th>
+        <% if antecedente.obesidad == 0 %>
+          <td>No</td>
+        <% elsif antecedente.obesidad == 1 %>
+          <td>Lo padece</td>
+        <% elsif antecedente.obesidad == 2 %>
+          <td>Hay antecedentes familiares</td>
+        <% end %>
+      </tr>
+      <tr>
+        <th> El paciente padece o a padecido Hipertrigiceridemia?</th>
+        <% if antecedente.htrigli == 0 %>
+          <td>No</td>
+        <% elsif antecedente.htrigli == 1 %>
+          <td>Si</td>
+        <% elsif antecedente.htrigli == 2 %>
+          <td>No sabe</td>
+        <% end %>
+      </tr>
+      <tr>
+        <th> El paciente padece o tiene antecedentes de Hipercolesterolemia en su familia?</th>
+        <% if antecedente.hcolesterol == 0 %>
+          <td>No</td>
+        <% elsif antecedente.hcolesterol == 1 %>
+          <td>Lo padece</td>
+        <% elsif antecedente.hcolesterol == 2 %>
+          <td>Hay antecedentes familiares</td>
+        <% end %>
+      </tr>
+      <tr>
+        <th> El paciente padece o tiene antecedentes de cancer en su familia?</th>
+        <% if antecedente.cancer == 0 %>
+          <td>No</td>
+        <% elsif antecedente.cancer == 1 %>
+          <td>Lo padece</td>
+        <% elsif antecedente.cancer == 2 %>
+          <td>Hay antecedentes familiares</td>
+        <% end %>
+      </tr>
+      <tr>
+        <th> EL paciente padece o a padecido de Hipertension</th>
+        <% if antecedente.hipertension == 0 %>
+          <td>No</td>
+        <% elsif antecedente.hipertension == 1 %>
+          <td>Lo padece</td>
+        <% elsif antecedente.hipertension == 2 %>
+          <td>No sabe</td>
+        <% end %>
+      </tr>
+      <tr>
+        <th> El paciente padece o tiene antecedentes de gota en su familia?</th>
+        <% if antecedente.gota == 0 %>
+          <td>No</td>
+        <% elsif antecedente.gota == 1 %>
+          <td>Lo padece</td>
+        <% elsif antecedente.gota == 2 %>
+          <td>Hay antecedentes familiares</td>
+        <% end %>
+      </tr>
+      <tr>
+        <th> El paciente padece o tiene alguna enfermedad cronica? </th>
+        <% if antecedente.otro == "" %>
+          <td>No</td>
+        <% else %>
+          <td><%=  antecedente.otro %></td>
+        <% end %>
+      </tr>
+      <tr>
+        <th>Fecha de Registro</th>
+        <td><%= antecedente.created_at.strftime("%Y-%m-%d")%></td>
+      </tr>
+      <tr>
+        <th><%= link_to 'Modificar', edit_antecedente_path(antecedente.id, paciente_id: antecedente.paciente_id), class: 'btn btn-primary' %></th>
+      </tr>
+      <tr>
+        <th><%= link_to 'Eliminar', eliminar_antecedente_path(antecedente.id,paciente_id: antecedente.paciente_id), method: :delete, data: { confirm: 'Estas Seguro'}, class: 'btn btn-danger' %></th>
+      </tr>
+    </table>
+    <hr>
+  <% end %>
+</div>
+<% if @antecedentes.count < 1 %>
+  <%= link_to 'Agregar Registro', new_antecedente_path(params[:paciente_id]), class: 'btn btn-primary' %>
+<% end %>
+<%= link_to "Volver", mostrar_paciente_path(@persona.id) , class: 'btn btn-success'%>

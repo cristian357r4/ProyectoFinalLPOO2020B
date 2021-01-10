@@ -1,0 +1,115 @@
+<% paciente = Paciente.find(params[:paciente_id])
+   @persona = paciente.personas.last
+%>
+<p>Nombre del Paciente: <%=  @persona.full_name%> </p>
+<hr>
+<div class="col-md-9">
+  <% @habitos.each do |habito| %>
+    <table class="table table-bordered">
+      <tr>
+        <th> Dias por semana en los que consume tabaco</th>
+        <% if habito.tabaco == 0 %>
+          <td>No consume</td>
+        <% elsif habito.tabaco == 1 %>
+          <td>Una vez por semana</td>
+        <% elsif habito.tabaco == 2 %>
+          <td>Dos veces por semana</td>
+        <% elsif habito.tabaco == 3 %>
+          <td>Tres veces por semana</td>
+        <% elsif habito.tabaco == 4 %>
+          <td>Cuatro veces por semana </td>
+        <% elsif habito.tabaco == 5 %>
+          <td>CInco veces o mas </td>
+        <% end %>
+      </tr>
+      <tr>
+        <th> Dias por semana en los que consume Alcohol</th>
+        <% if habito.alcohol == 0 %>
+          <td>No consume</td>
+        <% elsif habito.alcohol == 1 %>
+          <td>Una vez por semana</td>
+        <% elsif habito.alcohol == 2 %>
+          <td>Dos veces por semana</td>
+        <% elsif habito.alcohol == 3 %>
+          <td>Tres veces por semana</td>
+        <% elsif habito.alcohol == 4 %>
+          <td>Cuatro veces por semana </td>
+        <% elsif habito.alcohol == 5 %>
+          <td>Cinco veces o mas </td>
+        <% end %>
+      </tr>
+      <tr>
+        <th>Otros</th>
+        <% if habito.otros == "" %>
+          <td>Ninguno</td>
+        <% else %>
+          <td><%= habito.otros %></td>
+        <% end %>
+      </tr>
+      <tr>
+        <th>El dia de hoy consumio alguna de las sustancias que se le mencionaron?</th>
+        <% if habito.preferida == 0 %>
+          <td>Ninguna</td>
+        <% elsif habito.preferida == 1 %>
+          <td>Alcohol</td>
+        <% elsif habito.preferida 2 %>
+          <td>Tabaco</td>
+        <% end %>
+      </tr>
+      <tr>
+        <th>Hace cuanto tiempo que empezo a consumir</th>
+        <% if habito.tiempo_consumo == 0 %>
+          <td>No consume</td>
+        <% elsif habito.tiempo_consumo == 1 %>
+          <td>Menos de una semana</td>
+        <% elsif habito.tiempo_consumo == 2 %>
+          <td>Entre una semana y un mes</td>
+        <% elsif habito.tiempo_consumo == 2 %>
+          <td>Entree un mes y seis meses</td>
+        <% elsif habito.tiempo_consumo == 2 %>
+          <td>Mas de seis meses</td>
+        <% end %>
+      </tr>
+      <tr>
+        <th>Promedio de horas que duerem a la semana</th>
+        <% if habito.average_dream == 0 %>
+          <td>entre 35 y 42</td>
+        <% elsif habito.average_dream == 1 %>
+          <td>entre 43 y 56</td>
+        <% elsif habito.average_dream == 2 %>
+          <td>entre 57 y 84</td>
+        <% end %>
+
+      </tr>
+      <tr>
+        <th>Litros de agua toma al dia</th>
+        <% if habito.cantidad_agua == 0 %>
+          <td>Menos de Un litro</td>
+        <% elsif habito.cantidad_agua == 1 %>
+          <td>Entre un litro y dos litros</td>
+        <% elsif habito.cantidad_agua 2 %>
+          <td>Mas de dos litros</td>
+        <% end %>
+      </tr>
+      <tr>
+        <th>Numero de comidas al dia</th>
+        <td><%= habito.numero_comidas %></td>
+      </tr>
+      <tr>
+        <th>Fecha de Registro</th>
+        <td><%= habito.created_at.strftime("%Y-%m-%d")%></td>
+      </tr>
+      <tr>
+        <th><%= link_to 'Modificar', edit_habito_path(habito.id, paciente_id: habito.paciente_id), class: 'btn btn-primary' %></th>
+      </tr>
+      <tr>
+        <th><%= link_to 'Eliminar', eliminar_habito_path(habito.id,paciente_id: habito.paciente_id), method: :delete, data: { confirm: 'Estas Seguro'}, class: 'btn btn-danger' %></th>
+      </tr>
+    </table>
+    <hr>
+  <% end %>
+</div>
+<% if @habitos.count < 1 %>
+  <%= link_to 'Agregar Registro', new_habito_path(params[:paciente_id]), class: 'btn btn-primary' %>
+<% end %>
+<%= link_to "Volver", mostrar_paciente_path(@persona.id) , class: 'btn btn-success'%>

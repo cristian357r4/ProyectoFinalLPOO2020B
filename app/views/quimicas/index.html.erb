@@ -3,6 +3,29 @@
 %>
 <p>Nombre del Paciente: <%=  @persona.full_name%> </p>
 <hr>
+
+<!--<div class="card shadow mb-4">-->
+<!--  <div class="card-header py3">-->
+<!--    <h6 class="m-0 font-weight-bold text-primary">Detalle de Quimicas</h6>-->
+<!--  </div>-->
+
+<!--  <div class="card-body">-->
+<!--    <div class="table-responsive">-->
+<!--      <table class="responsive nowrap table table-hover" id="dttb-quimicas_wrapper" data-sort="true" data-source="<%%= url_for(format: :json)%>">-->
+<!--        <thead>-->
+<!--        <tr>-->
+          <%# attributes.reject(&:password_digest?).each do |attribute| -%>
+<!--            <th data-data="<%#= attribute.name %>"><%#= attribute.human_name %></th>-->
+          <%# end -%>
+<!--          <th data-data="url" data-orderable="false" data-class-name="all" data-searchable="false" class="skip-export" width="100px">Acciones</th>-->
+<!--        </tr>-->
+<!--        </thead>-->
+<!--      </table>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <%%= link_to 'Nuevo <%#= singular_table_name.titleize %>', new_<%#= singular_route_name %>_path , class: 'btn btn-primary'%>-->
+<!--</div>-->
+<!--<br>-->
 <% @quimicas.each do |quimica| %>
   <table>
     <tr>
@@ -38,7 +61,7 @@
       <td><%= quimica.created_at.strftime("%Y-%m-%d")%></td>
     </tr>
     <tr>
-      <th><%= link_to 'Modificar', edit_quimica_path(quimica.id), class: 'btn btn-primary' %></th>
+      <th><%= link_to 'Modificar', edit_quimica_path(quimica.id, paciente_id: quimica.paciente_id), class: 'btn btn-primary' %></th>
     </tr>
     <tr>
       <th><%= link_to 'Eliminar', eliminar_quimica_path(quimica.id,paciente_id: quimica.paciente_id), method: :delete, data: { confirm: 'Estas Seguro'}, class: 'btn btn-danger' %></th>

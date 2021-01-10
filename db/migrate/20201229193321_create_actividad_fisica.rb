@@ -29,7 +29,7 @@ class CreateActividadFisica < ActiveRecord::Migration[5.2]
       t.timestamps
     end
 
-    create_table :biometrias do |t|
+    create_table :habitos do |t|
       t.belongs_to :paciente, index: { unique: true}, foreign_key: true
       t.float :globulos_rojos
       t.float :globulos_blancos

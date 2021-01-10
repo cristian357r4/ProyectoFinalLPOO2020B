@@ -27,22 +27,19 @@
         <p>Id paciente: <%= @paciente.id %></p>
       </div>
       <div class="card-body">
-        <%= link_to 'Problemas de Salud', signo_path, class: 'btn btn-primary w-100 '  %>
-        <br>
-        <br>
         <%= link_to 'Quimicas Sanguinea', index_quimica_path(@paciente.id), class: 'btn btn-primary w-100'  %>
         <br>
         <br>
-        <%= link_to 'Biometrias Ematica', signo_path, class: 'btn btn-primary w-100'  %>
+        <%= link_to 'Biometrias Hematica', index_biometria_path(@paciente.id), class: 'btn btn-primary w-100'  %>
         <br>
         <br>
-        <%= link_to 'Habitos de Consumo', signo_path, class: 'btn btn-primary w-100'  %>
+        <%= link_to 'Habitos de Salud', index_habito_path(@paciente.id), class: 'btn btn-primary w-100'  %>
         <br>
         <br>
-        <%= link_to 'Actividad Fisica', signo_path, class: 'btn btn-primary w-100'  %>
+        <%= link_to 'Actividad Fisica', index_actividad_path(@paciente.id), class: 'btn btn-primary w-100'  %>
         <br>
         <br>
-        <%= link_to 'Antecedentes Clinicos', signo_path, class: 'btn btn-primary w-100 '  %>
+        <%= link_to 'Antecedentes Clinicos', index_antecedente_path(@paciente.id), class: 'btn btn-primary w-100 '  %>
       </div>
     </div>
 

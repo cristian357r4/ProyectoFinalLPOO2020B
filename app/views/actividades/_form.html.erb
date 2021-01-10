@@ -1,0 +1,108 @@
+<%= form_with(model: actividad, id: 'formulario_actividad', url: url, local: true) do |actividad|%>
+  <%= actividad.hidden_field(:paciente_id, :value => params[:paciente_id]) %>
+  <div class="form-group">
+    <%= actividad.label "Practica algun de porte?" %><br>
+    <%= actividad.radio_button :deporte, 'No', :checked => true %> No
+    <%= actividad.radio_button :deporte, 'Si' %> Si
+  </div>
+  <div class="form-group">
+    <%= actividad.label "Descripcion" %><br>
+    <%= actividad.text_area(:descripcion, cols: 40) %>
+  </div>
+  <div class="form-group ">
+    <%= actividad.label "Cuantas veces a la semana lo practica?" %><br>
+    <div class="row">
+      <div class="col-2">
+        <%= actividad.radio_button :frecuencia, 0, :checked => true%>No Practica
+      </div>
+      <div class="col-2">
+        <%= actividad.radio_button :frecuencia,1%>1
+      </div>
+      <div class="col-2">
+        <%= actividad.radio_button :frecuencia,2%>2
+      </div>
+      <div class="col-2">
+        <%= actividad.radio_button :frecuencia,3%>3
+      </div>
+      <div class="col-2">
+        <%= actividad.radio_button :frecuencia,4%>4
+      </div>
+      <div class="col-2">
+        <%= actividad.radio_button :frecuencia,5%>5
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= actividad.label "Si el paciente realiza ejercicio, Cuantas horas?" %><br>
+    <div class="row">
+      <div class="col-2">
+        <%= actividad.radio_button :duracion, 0, :checked => true%>No practica
+      </div>
+      <div class="col-2">
+        <%= actividad.radio_button :duracion,1%>1 hora
+      </div>
+      <div class="col-2">
+        <%= actividad.radio_button :duracion,2%>2 hora
+      </div>
+      <div class="col-2">
+        <%= actividad.radio_button :duracion,3%>Mas de 2 horas
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= actividad.label "Cuanto tiempo lleva ejercitandose?"%><br>
+    <div class="row">
+      <div class="col-3">
+        <%= actividad.radio_button :tiempo_practica,'No se ejercita' , :checked => true%>No se ejercita
+      </div>
+      <div class="col-3">
+        <%= actividad.radio_button :tiempo_practica,'Menos de una semana' %>Menos de una semana
+      </div>
+      <div class="col-3">
+        <%= actividad.radio_button :tiempo_practica,'Entre una semana y un mes'%>Entre una semana y un mes
+      </div>
+      <div class="col-3">
+        <%= actividad.radio_button :tiempo_practica,'Entre un mes y seis meses'%>Entre un mes y seis meses
+      </div>
+      <div class="col-3">
+        <%= actividad.radio_button :tiempo_practica,'Mas de seis Meses'%>Mas de seis Meses
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= actividad.label "Lo practica solo o en grupo?" %><br>
+    <div class="row">
+      <div class="col-3">
+        <%= actividad.radio_button :grupo_solitario, 'Solo', :checked => true%>Solo
+      </div>
+      <div class="col-3">
+        <%= actividad.radio_button :grupo_solitario,'En grupo'%>En grupo
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= actividad.label "Es parte de un equipo?" %><br>
+    <div class="row">
+      <div class="col-3">
+        <%= actividad.radio_button :equipo_amateur, 'No', :checked => true%>No
+      </div>
+      <div class="col-3">
+        <%= actividad.radio_button :equipo_amateur,'Si'%>Si
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= actividad.label "Asiste al gimnasio?" %><br>
+    <div class="row">
+      <div class="col-3">
+        <%= actividad.radio_button :gym, 'No', :checked => true%>No
+      </div>
+      <div class="col-3">
+        <%= actividad.radio_button :gym,'Si'%>Si
+      </div>
+    </div>
+  </div>
+  <div class="actions">
+    <%= actividad.submit "Guardar datos", class: "btn btn-primary" %>
+  </div>
+<% end %>

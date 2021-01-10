@@ -1,0 +1,3 @@
+<h1>Registro de Antecedentes Clinicos</h1>
+<%= render 'form', antecedente: @antecedente, url: create_antecedente_path %>
+<%= link_to 'Regresar', index_antecedente_path(params[:paciente_id], class: 'btn btn-info') %>

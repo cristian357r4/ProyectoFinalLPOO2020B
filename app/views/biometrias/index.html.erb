@@ -1,0 +1,54 @@
+<% paciente = Paciente.find(params[:paciente_id])
+   @persona = paciente.personas.last
+%>
+<p>Nombre del Paciente: <%=  @persona.full_name%> </p>
+<hr>
+<% @biometrias.each do |biometria| %>
+  <table>
+    <tr>
+      <th>Globulos Rojos</th>
+      <td><%= biometria.globulos_rojos %></td>
+    </tr>
+    <tr>
+      <th>Globus Blancos</th>
+      <td><%= biometria.globulos_blancos%></td>
+    </tr>
+    <tr>
+      <th>Plaquetas</th>
+      <td><%= biometria.plaquetas%></td>
+    </tr>
+    <tr>
+      <th>Hemoglobina</th>
+      <td><%= biometria.hemoglobina%></td>
+    </tr>
+    <tr>
+      <th>Hematocritos</th>
+      <td><%= biometria.hematocritos%></td>
+    </tr>
+    <tr>
+      <th>Neutrofilos</th>
+      <td><%= biometria.neutrofilos%></td>
+    </tr>
+    <tr>
+      <th>Monocitos</th>
+      <td><%= biometria.monocitos%></td>
+    </tr>
+    <tr>
+      <th>Linfocitos</th>
+      <td><%= biometria.linfocitos%></td>
+    </tr>
+    <tr>
+      <th>Fecha de Registro</th>
+      <td><%= biometria.created_at.strftime("%Y-%m-%d")%></td>
+    </tr>
+    <tr>
+      <th><%= link_to 'Modificar', edit_biometria_path(biometria.id, paciente_id: biometria.paciente_id), class: 'btn btn-primary' %></th>
+    </tr>
+    <tr>
+      <th><%= link_to 'Eliminar', eliminar_biometria_path(biometria.id,paciente_id: biometria.paciente_id), method: :delete, data: { confirm: 'Estas Seguro'}, class: 'btn btn-danger' %></th>
+    </tr>
+  </table>
+  <hr>
+<% end %>
+<%= link_to 'Agregar Registro', new_biometria_path(params[:paciente_id]), class: 'btn btn-primary' %>
+<%= link_to "Volver", mostrar_paciente_path(@persona.id) , class: 'btn btn-success'%>

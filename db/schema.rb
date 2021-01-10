@@ -17,14 +17,14 @@ ActiveRecord::Schema.define(version: 2020_12_29_231401) do
     t.integer "deporte"
     t.string "descripcion"
     t.string "frecuencia"
-    t.float "duracion"
+    t.integer "duracion"
     t.string "tiempo_practica"
     t.string "grupo_solitario"
     t.string "equipo_amateur"
     t.string "gym"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["paciente_id"], name: "index_actividades_on_paciente_id", unique: true
+    t.index ["paciente_id"], name: "index_actividades_on_paciente_id", unique: false
   end
 
   create_table "alimentos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
@@ -101,9 +101,9 @@ ActiveRecord::Schema.define(version: 2020_12_29_231401) do
     t.integer "tabaco"
     t.integer "alcohol"
     t.string "otros"
-    t.integer "a_frecuencia"
+    t.string "preferida"
     t.integer "tiempo_consumo"
-    t.integer "promedio_h_dream"
+    t.integer "average_dream"
     t.integer "cantidad_agua"
     t.integer "numero_comidas"
     t.datetime "created_at", null: false

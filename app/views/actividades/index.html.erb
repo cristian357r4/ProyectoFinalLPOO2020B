@@ -1,0 +1,63 @@
+<% paciente = Paciente.find(params[:paciente_id])
+   @persona = paciente.personas.last
+%>
+<p>Nombre del Paciente: <%=  @persona.full_name%> </p>
+<hr>
+<div class="col-md-6">
+  <% @actividades.each do |actividad| %>
+    <table class="table table-bordered">
+      <tr>
+        <th>Practica algun deporte? </th>
+        <td><%= actividad.deporte%></td>
+      </tr>
+      <tr>
+        <th>Descripcion </th>
+        <td><%= actividad.descripcion%></td>
+      </tr>
+      <tr>
+        <th>Cuantos dias a la semana practica?</th>
+        <td><%= actividad.frecuencia%></td>
+      </tr>
+      <tr>
+        <th>Cuantas horas al dia?</th>
+        <td><%= actividad.duracion%></td>
+      </tr>
+      <tr>
+        <th>Tiempo de practica </th>
+        <td><%= actividad.tiempo_practica%></td>
+      </tr>
+      <tr>
+        <th>Actividad solo o en grupo? </th>
+        <td><%= actividad.grupo_solitario%></td>
+      </tr>
+      <tr>
+        <th>Parte de un equipo? </th>
+        <td><%= actividad.equipo_amateur%></td>
+      </tr>
+      <tr>
+        <th>Asiste al gimnasio: </th>
+        <td><%= actividad.gym%></td>
+      </tr>
+      <tr>
+        <th>Fecha de Registro</th>
+        <td><%= actividad.created_at.strftime("%Y-%m-%d")%></td>
+      </tr>
+      <tr>
+        <th>Fecha de Modificacion</th>
+        <td><%= actividad.updated_at.strftime("%Y-%m-%d")%></td>
+      </tr>
+      <tr>
+        <th><%= link_to 'Modificar', edit_actividad_path(actividad.id, paciente_id: actividad.paciente_id), class: 'btn btn-primary' %></th>
+      </tr>
+      <tr>
+        <th><%= link_to 'Eliminar', eliminar_actividad_path(actividad.id,paciente_id: actividad.paciente_id), method: :delete, data: { confirm: 'Estas Seguro'}, class: 'btn btn-danger' %></th>
+      </tr>
+    </table>
+    <hr>
+  <% end %>
+</div>
+<% #TODO Se desactiva el boton %>
+<% if @actividades.count < 1 %>
+  <%= link_to 'Agregar Registro', new_actividad_path(params[:paciente_id]), class: 'btn btn-primary' %>
+<% end %>
+<%= link_to "Volver", mostrar_paciente_path(@persona.id) , class: 'btn btn-success'%>
