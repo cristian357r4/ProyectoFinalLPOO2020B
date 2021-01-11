@@ -1,0 +1,31 @@
+<% paciente = Paciente.find(params[:paciente_id])
+   @persona = paciente.personas.last
+%>
+<p>Nombre del Paciente: <%=  @persona.full_name%> </p>
+<hr>
+<div class="col-md-6">
+  <% @plansuplementos.each do |plan| %>
+    <table class="table table-bordered">
+      <tr>
+        <th>Suplemento </th>
+        <td><%= plan.suplemento.nombre%></td>
+      </tr>
+      <tr>
+        <th>Frecuencia por semana</th>
+        <td><%= plan.frecuencia %></td>
+      </tr>
+      <tr>
+        <th><%= link_to 'Editar', edit_plan_path(plan.id,paciente_id: plan.paciente_id),class: 'btn btn-primary' %></th>
+      </tr>
+      <tr>
+        <th><%= link_to 'Eliminar', eliminar_plan_path(plan.id,paciente_id: plan.paciente_id), method: :delete, data: { confirm: 'Estas Seguro'}, class: 'btn btn-danger' %></th>
+      </tr>
+    </table>
+    <hr>
+  <% end %>
+</div>
+<% #TODO Se desactiva el boton %>
+<% if @plansuplementos.count < 1 %>
+  <%= link_to 'Agregar Registro', new_plan_path(params[:paciente_id]), class: 'btn btn-primary' %>
+<% end %>
+<%= link_to "Volver", mostrar_paciente_path(@persona.id) , class: 'btn btn-success'%>

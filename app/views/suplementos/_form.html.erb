@@ -1,4 +1,4 @@
-<%= form_with(model: suplemento, local: true) do |form| %>
+<%= form_with(model: suplemento,id: 'formulario_suplementos', local: true) do |form| %>
   <% if suplemento.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(suplemento.errors.count, "error") %> prohibited this suplemento from being saved:</h2>
@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-
+<% #TODO Validar que el nombre no exista %>
   <div class="field">
     <%= form.label :nombre %>
     <%= form.text_field :nombre %>
@@ -18,17 +18,31 @@
 
   <div class="field">
     <%= form.label :marca %>
-    <%= form.text_field :marca %>
+    <div class="row">
+      <div class="col-2">
+       <%= form.radio_button :marca, 'MuscleTech', :checked => true%> MuscleTech
+      </div>
+      <div class="col-2">
+        <%= form.radio_button :marca, 'ForzaGen'%> ForzaGen
+      </div>
+    </div>
   </div>
 
   <div class="field">
     <%= form.label :formato %>
-    <%= form.text_field :formato %>
+    <div class="row">
+      <div class="col-2">
+        <%= form.radio_button :formato, 'Polvo', :checked => true%> Polvo
+      </div>
+      <div class="col-2">
+        <%= form.radio_button :formato, 'Capsulas'%>  Capsulas
+      </div>
+    </div>
   </div>
 
   <div class="field">
-    <%= form.label :peso_producto %>
-    <%= form.text_field :peso_producto %>
+    <%= form.label 'Peso del Producto en gramos' %>
+    <%= form.number_field :peso_producto , placeholder: 'Ejemplo: 260'%>
   </div>
 
   <div class="field">
@@ -38,12 +52,28 @@
 
   <div class="field">
     <%= form.label :precio %>
-    <%= form.text_field :precio %>
+    <%= form.number_field :precio %>
   </div>
 
   <div class="field">
-    <%= form.label :contenido %>
-    <%= form.text_area :contenido %>
+    <%= form.label 'Sabor' %>
+    <div class="row">
+      <div class="col-2">
+        <%= form.radio_button :contenido, 'Chocolate', :checked => true%> Chocolate
+      </div>
+      <div class="col-2">
+        <%= form.radio_button :contenido, 'Fresa'%> Fresa
+      </div>
+      <div class="col-2">
+        <%= form.radio_button :contenido, 'Fresa'%> Platano
+      </div>
+      <div class="col-2">
+        <%= form.radio_button :contenido, 'Manzana'%> Manzana
+      </div>
+      <div class="col-2">
+        <%= form.radio_button :contenido, 'No aplica'%> No Aplica
+      </div>
+    </div>
   </div>
 
   <div class="field">
@@ -52,6 +82,6 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Guardar', class: 'btn btn-primary' %>
   </div>
 <% end %>

@@ -762,592 +762,600 @@ SELECT|sys.sys_config
       <ObjectGrants>ALL PRIVILEGES!
 </ObjectGrants>
     </user>
-    <table id="236" parent="8" name="actividades"/>
-    <table id="237" parent="8" name="alimentos"/>
-    <table id="238" parent="8" name="antecedentes"/>
-    <table id="239" parent="8" name="ar_internal_metadata"/>
-    <table id="240" parent="8" name="biometrias"/>
-    <table id="241" parent="8" name="consultas"/>
-    <table id="242" parent="8" name="dietas"/>
-    <table id="243" parent="8" name="habitos"/>
-    <table id="244" parent="8" name="nutriologos"/>
-    <table id="245" parent="8" name="pacientes"/>
-    <table id="246" parent="8" name="personas"/>
-    <table id="247" parent="8" name="plansuplementos"/>
-    <table id="248" parent="8" name="problemas"/>
-    <table id="249" parent="8" name="quimicas"/>
-    <table id="250" parent="8" name="schema_migrations"/>
-    <table id="251" parent="8" name="signos"/>
-    <table id="252" parent="8" name="suplementos"/>
-    <column id="253" parent="236" name="id">
+    <table id="236" parent="8" name="active_storage_attachments"/>
+    <table id="237" parent="8" name="active_storage_blobs"/>
+    <table id="238" parent="8" name="actividades"/>
+    <table id="239" parent="8" name="alimentos"/>
+    <table id="240" parent="8" name="antecedentes"/>
+    <table id="241" parent="8" name="ar_internal_metadata"/>
+    <table id="242" parent="8" name="biometrias"/>
+    <table id="243" parent="8" name="consultas"/>
+    <table id="244" parent="8" name="dietas"/>
+    <table id="245" parent="8" name="habitos"/>
+    <table id="246" parent="8" name="nutriologos"/>
+    <table id="247" parent="8" name="pacientes"/>
+    <table id="248" parent="8" name="personas"/>
+    <table id="249" parent="8" name="plansuplementos"/>
+    <table id="250" parent="8" name="problemas"/>
+    <table id="251" parent="8" name="quimicas"/>
+    <table id="252" parent="8" name="schema_migrations"/>
+    <table id="253" parent="8" name="signos"/>
+    <table id="254" parent="8" name="suplementos"/>
+    <column id="255" parent="236" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="254" parent="236" name="paciente_id">
+    <column id="256" parent="236" name="name">
       <Position>2</Position>
-      <DataType>bigint(20)|0s</DataType>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="255" parent="236" name="deporte">
+    <column id="257" parent="236" name="record_type">
       <Position>3</Position>
-      <DataType>varchar(100)|0s</DataType>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="256" parent="236" name="descripcion">
+    <column id="258" parent="236" name="record_id">
       <Position>4</Position>
-      <DataType>varchar(255)|0s</DataType>
+      <DataType>bigint(20)|0s</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="257" parent="236" name="frecuencia">
+    <column id="259" parent="236" name="blob_id">
       <Position>5</Position>
-      <DataType>varchar(255)|0s</DataType>
+      <DataType>bigint(20)|0s</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="258" parent="236" name="duracion">
+    <column id="260" parent="236" name="created_at">
       <Position>6</Position>
-      <DataType>int(11)|0s</DataType>
-    </column>
-    <column id="259" parent="236" name="tiempo_practica">
-      <Position>7</Position>
-      <DataType>varchar(255)|0s</DataType>
-    </column>
-    <column id="260" parent="236" name="grupo_solitario">
-      <Position>8</Position>
-      <DataType>varchar(255)|0s</DataType>
-    </column>
-    <column id="261" parent="236" name="equipo_amateur">
-      <Position>9</Position>
-      <DataType>varchar(255)|0s</DataType>
-    </column>
-    <column id="262" parent="236" name="gym">
-      <Position>10</Position>
-      <DataType>varchar(255)|0s</DataType>
-    </column>
-    <column id="263" parent="236" name="created_at">
-      <Position>11</Position>
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="264" parent="236" name="updated_at">
-      <Position>12</Position>
-      <DataType>datetime|0s</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <index id="265" parent="236" name="fk_rails_ff0d8c5d9d">
-      <ColNames>paciente_id</ColNames>
+    <index id="261" parent="236" name="index_active_storage_attachments_uniqueness">
+      <ColNames>record_type
+record_id
+name
+blob_id</ColNames>
+      <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="266" parent="236" name="PRIMARY">
+    <index id="262" parent="236" name="index_active_storage_attachments_on_blob_id">
+      <ColNames>blob_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="263" parent="236" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="267" parent="236" name="fk_rails_ff0d8c5d9d">
+    <key id="264" parent="236" name="index_active_storage_attachments_uniqueness">
+      <ColNames>record_type
+record_id
+name
+blob_id</ColNames>
+      <UnderlyingIndexName>index_active_storage_attachments_uniqueness</UnderlyingIndexName>
+    </key>
+    <foreign-key id="265" parent="236" name="fk_rails_c3b3935057">
+      <ColNames>blob_id</ColNames>
+      <RefTableName>active_storage_blobs</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="266" parent="237" name="id">
+      <Position>1</Position>
+      <DataType>bigint(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="267" parent="237" name="key">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="268" parent="237" name="filename">
+      <Position>3</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="269" parent="237" name="content_type">
+      <Position>4</Position>
+      <DataType>varchar(255)|0s</DataType>
+    </column>
+    <column id="270" parent="237" name="metadata">
+      <Position>5</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <column id="271" parent="237" name="byte_size">
+      <Position>6</Position>
+      <DataType>bigint(20)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="272" parent="237" name="checksum">
+      <Position>7</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="273" parent="237" name="created_at">
+      <Position>8</Position>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="274" parent="237" name="index_active_storage_blobs_on_key">
+      <ColNames>key</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <key id="275" parent="237" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="276" parent="237" name="index_active_storage_blobs_on_key">
+      <ColNames>key</ColNames>
+      <UnderlyingIndexName>index_active_storage_blobs_on_key</UnderlyingIndexName>
+    </key>
+    <column id="277" parent="238" name="id">
+      <Position>1</Position>
+      <DataType>bigint(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="278" parent="238" name="paciente_id">
+      <Position>2</Position>
+      <DataType>bigint(20)|0s</DataType>
+    </column>
+    <column id="279" parent="238" name="deporte">
+      <Position>3</Position>
+      <DataType>varchar(100)|0s</DataType>
+    </column>
+    <column id="280" parent="238" name="descripcion">
+      <Position>4</Position>
+      <DataType>varchar(255)|0s</DataType>
+    </column>
+    <column id="281" parent="238" name="frecuencia">
+      <Position>5</Position>
+      <DataType>varchar(255)|0s</DataType>
+    </column>
+    <column id="282" parent="238" name="duracion">
+      <Position>6</Position>
+      <DataType>int(11)|0s</DataType>
+    </column>
+    <column id="283" parent="238" name="tiempo_practica">
+      <Position>7</Position>
+      <DataType>varchar(255)|0s</DataType>
+    </column>
+    <column id="284" parent="238" name="grupo_solitario">
+      <Position>8</Position>
+      <DataType>varchar(255)|0s</DataType>
+    </column>
+    <column id="285" parent="238" name="equipo_amateur">
+      <Position>9</Position>
+      <DataType>varchar(255)|0s</DataType>
+    </column>
+    <column id="286" parent="238" name="gym">
+      <Position>10</Position>
+      <DataType>varchar(255)|0s</DataType>
+    </column>
+    <column id="287" parent="238" name="created_at">
+      <Position>11</Position>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="288" parent="238" name="updated_at">
+      <Position>12</Position>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="289" parent="238" name="fk_rails_ff0d8c5d9d">
+      <ColNames>paciente_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="290" parent="238" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="291" parent="238" name="fk_rails_ff0d8c5d9d">
       <ColNames>paciente_id</ColNames>
       <RefTableName>pacientes</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="268" parent="237" name="id">
+    <column id="292" parent="239" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="269" parent="237" name="nombre">
+    <column id="293" parent="239" name="nombre">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="270" parent="237" name="grupo_alimenticio">
+    <column id="294" parent="239" name="grupo_alimenticio">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="271" parent="237" name="subgrupo_alimenticio">
+    <column id="295" parent="239" name="subgrupo_alimenticio">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="272" parent="237" name="carcateristicas">
+    <column id="296" parent="239" name="caracteristicas">
       <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="273" parent="237" name="frecuencia">
+    <column id="297" parent="239" name="frecuencia">
       <Position>6</Position>
       <DataType>int(11)|0s</DataType>
     </column>
-    <column id="274" parent="237" name="racionexporcion">
+    <column id="298" parent="239" name="racionexporcion">
       <Position>7</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="275" parent="237" name="mxcasera">
+    <column id="299" parent="239" name="mxcasera">
       <Position>8</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="276" parent="237" name="nutrientes">
+    <column id="300" parent="239" name="nutrientes">
       <Position>9</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="277" parent="237" name="created_at">
+    <column id="301" parent="239" name="created_at">
       <Position>10</Position>
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="278" parent="237" name="updated_at">
+    <column id="302" parent="239" name="updated_at">
       <Position>11</Position>
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="279" parent="237" name="PRIMARY">
+    <key id="303" parent="239" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="280" parent="238" name="id">
+    <column id="304" parent="240" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="281" parent="238" name="paciente_id">
+    <column id="305" parent="240" name="paciente_id">
       <Position>2</Position>
       <DataType>bigint(20)|0s</DataType>
     </column>
-    <column id="282" parent="238" name="diabetes">
+    <column id="306" parent="240" name="diabetes">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
     </column>
-    <column id="283" parent="238" name="obesidad">
+    <column id="307" parent="240" name="obesidad">
       <Position>4</Position>
       <DataType>int(11)|0s</DataType>
     </column>
-    <column id="284" parent="238" name="htrigli">
+    <column id="308" parent="240" name="htrigli">
       <Position>5</Position>
       <DataType>int(11)|0s</DataType>
     </column>
-    <column id="285" parent="238" name="hcolesterol">
+    <column id="309" parent="240" name="hcolesterol">
       <Position>6</Position>
       <DataType>int(11)|0s</DataType>
     </column>
-    <column id="286" parent="238" name="cancer">
+    <column id="310" parent="240" name="cancer">
       <Position>7</Position>
       <DataType>int(11)|0s</DataType>
     </column>
-    <column id="287" parent="238" name="hipertension">
+    <column id="311" parent="240" name="hipertension">
       <Position>8</Position>
       <DataType>int(11)|0s</DataType>
     </column>
-    <column id="288" parent="238" name="gota">
+    <column id="312" parent="240" name="gota">
       <Position>9</Position>
       <DataType>int(11)|0s</DataType>
     </column>
-    <column id="289" parent="238" name="otro">
+    <column id="313" parent="240" name="otro">
       <Position>10</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="290" parent="238" name="created_at">
+    <column id="314" parent="240" name="created_at">
       <Position>11</Position>
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="291" parent="238" name="updated_at">
+    <column id="315" parent="240" name="updated_at">
       <Position>12</Position>
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="292" parent="238" name="index_antecedentes_on_paciente_id">
+    <index id="316" parent="240" name="index_antecedentes_on_paciente_id">
       <ColNames>paciente_id</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="293" parent="238" name="PRIMARY">
+    <key id="317" parent="240" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="294" parent="238" name="index_antecedentes_on_paciente_id">
+    <key id="318" parent="240" name="index_antecedentes_on_paciente_id">
       <ColNames>paciente_id</ColNames>
       <UnderlyingIndexName>index_antecedentes_on_paciente_id</UnderlyingIndexName>
     </key>
-    <foreign-key id="295" parent="238" name="fk_rails_8de77e54f2">
+    <foreign-key id="319" parent="240" name="fk_rails_8de77e54f2">
       <ColNames>paciente_id</ColNames>
       <RefTableName>pacientes</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="296" parent="239" name="key">
+    <column id="320" parent="241" name="key">
       <Position>1</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="297" parent="239" name="value">
+    <column id="321" parent="241" name="value">
       <Position>2</Position>
-      <DataType>varchar(255)|0s</DataType>
-    </column>
-    <column id="298" parent="239" name="created_at">
-      <Position>3</Position>
-      <DataType>datetime|0s</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="299" parent="239" name="updated_at">
-      <Position>4</Position>
-      <DataType>datetime|0s</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <key id="300" parent="239" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>key</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <column id="301" parent="240" name="id">
-      <Position>1</Position>
-      <DataType>bigint(20)|0s</DataType>
-      <NotNull>1</NotNull>
-      <SequenceIdentity>null</SequenceIdentity>
-    </column>
-    <column id="302" parent="240" name="paciente_id">
-      <Position>2</Position>
-      <DataType>bigint(20)|0s</DataType>
-    </column>
-    <column id="303" parent="240" name="globulos_rojos">
-      <Position>3</Position>
-      <DataType>float|0s</DataType>
-    </column>
-    <column id="304" parent="240" name="globulos_blancos">
-      <Position>4</Position>
-      <DataType>float|0s</DataType>
-    </column>
-    <column id="305" parent="240" name="plaquetas">
-      <Position>5</Position>
-      <DataType>float|0s</DataType>
-    </column>
-    <column id="306" parent="240" name="hemoglobina">
-      <Position>6</Position>
-      <DataType>float|0s</DataType>
-    </column>
-    <column id="307" parent="240" name="hematocritos">
-      <Position>7</Position>
-      <DataType>float|0s</DataType>
-    </column>
-    <column id="308" parent="240" name="neutrofilos">
-      <Position>8</Position>
-      <DataType>float|0s</DataType>
-    </column>
-    <column id="309" parent="240" name="monocitos">
-      <Position>9</Position>
-      <DataType>float|0s</DataType>
-    </column>
-    <column id="310" parent="240" name="linfocitos">
-      <Position>10</Position>
-      <DataType>float|0s</DataType>
-    </column>
-    <column id="311" parent="240" name="created_at">
-      <Position>11</Position>
-      <DataType>datetime|0s</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="312" parent="240" name="updated_at">
-      <Position>12</Position>
-      <DataType>datetime|0s</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <index id="313" parent="240" name="fk_rails_abbb9af78b">
-      <ColNames>paciente_id</ColNames>
-      <Type>btree</Type>
-    </index>
-    <key id="314" parent="240" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <foreign-key id="315" parent="240" name="fk_rails_abbb9af78b">
-      <ColNames>paciente_id</ColNames>
-      <RefTableName>pacientes</RefTableName>
-      <RefColNames>id</RefColNames>
-    </foreign-key>
-    <column id="316" parent="241" name="id">
-      <Position>1</Position>
-      <DataType>bigint(20)|0s</DataType>
-      <NotNull>1</NotNull>
-      <SequenceIdentity>null</SequenceIdentity>
-    </column>
-    <column id="317" parent="241" name="nutriologo_id">
-      <Position>2</Position>
-      <DataType>bigint(20)|0s</DataType>
-    </column>
-    <column id="318" parent="241" name="paciente_id">
-      <Position>3</Position>
-      <DataType>bigint(20)|0s</DataType>
-    </column>
-    <column id="319" parent="241" name="signo_id">
-      <Position>4</Position>
-      <DataType>bigint(20)|0s</DataType>
-    </column>
-    <column id="320" parent="241" name="problema_id">
-      <Position>5</Position>
-      <DataType>bigint(20)|0s</DataType>
-    </column>
-    <column id="321" parent="241" name="anotaciones">
-      <Position>6</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
     <column id="322" parent="241" name="created_at">
-      <Position>7</Position>
+      <Position>3</Position>
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
     </column>
     <column id="323" parent="241" name="updated_at">
-      <Position>8</Position>
+      <Position>4</Position>
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="324" parent="241" name="fk_rails_16d43c96ef">
-      <ColNames>nutriologo_id</ColNames>
-      <Type>btree</Type>
-    </index>
-    <index id="325" parent="241" name="fk_rails_f9df072331">
-      <ColNames>paciente_id</ColNames>
-      <Type>btree</Type>
-    </index>
-    <index id="326" parent="241" name="fk_rails_8aa92350d9">
-      <ColNames>signo_id</ColNames>
-      <Type>btree</Type>
-    </index>
-    <index id="327" parent="241" name="fk_rails_c07ffc045f">
-      <ColNames>problema_id</ColNames>
-      <Type>btree</Type>
-    </index>
-    <key id="328" parent="241" name="PRIMARY">
+    <key id="324" parent="241" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
-      <ColNames>id</ColNames>
+      <ColNames>key</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="329" parent="241" name="fk_rails_16d43c96ef">
-      <ColNames>nutriologo_id</ColNames>
-      <RefTableName>nutriologos</RefTableName>
-      <RefColNames>id</RefColNames>
-    </foreign-key>
-    <foreign-key id="330" parent="241" name="fk_rails_f9df072331">
-      <ColNames>paciente_id</ColNames>
-      <RefTableName>pacientes</RefTableName>
-      <RefColNames>id</RefColNames>
-    </foreign-key>
-    <foreign-key id="331" parent="241" name="fk_rails_8aa92350d9">
-      <ColNames>signo_id</ColNames>
-      <RefTableName>signos</RefTableName>
-      <RefColNames>id</RefColNames>
-    </foreign-key>
-    <foreign-key id="332" parent="241" name="fk_rails_c07ffc045f">
-      <ColNames>problema_id</ColNames>
-      <RefTableName>problemas</RefTableName>
-      <RefColNames>id</RefColNames>
-    </foreign-key>
-    <column id="333" parent="242" name="id">
+    <column id="325" parent="242" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="334" parent="242" name="paciente_id">
+    <column id="326" parent="242" name="paciente_id">
       <Position>2</Position>
       <DataType>bigint(20)|0s</DataType>
     </column>
-    <column id="335" parent="242" name="alimento_id">
+    <column id="327" parent="242" name="globulos_rojos">
       <Position>3</Position>
-      <DataType>bigint(20)|0s</DataType>
+      <DataType>float|0s</DataType>
     </column>
-    <column id="336" parent="242" name="comida">
+    <column id="328" parent="242" name="globulos_blancos">
       <Position>4</Position>
-      <DataType>varchar(30)|0s</DataType>
+      <DataType>float|0s</DataType>
     </column>
-    <column id="337" parent="242" name="cantidad">
+    <column id="329" parent="242" name="plaquetas">
       <Position>5</Position>
-      <DataType>int(11)|0s</DataType>
+      <DataType>float|0s</DataType>
     </column>
-    <column id="338" parent="242" name="estado">
+    <column id="330" parent="242" name="hemoglobina">
       <Position>6</Position>
-      <DataType>int(11)|0s</DataType>
+      <DataType>float|0s</DataType>
     </column>
-    <column id="339" parent="242" name="created_at">
+    <column id="331" parent="242" name="hematocritos">
       <Position>7</Position>
-      <DataType>datetime|0s</DataType>
-      <NotNull>1</NotNull>
+      <DataType>float|0s</DataType>
     </column>
-    <column id="340" parent="242" name="updated_at">
+    <column id="332" parent="242" name="neutrofilos">
       <Position>8</Position>
-      <DataType>datetime|0s</DataType>
-      <NotNull>1</NotNull>
+      <DataType>float|0s</DataType>
     </column>
-    <index id="341" parent="242" name="fk_rails_b9f587d0ff">
-      <ColNames>paciente_id</ColNames>
-      <Type>btree</Type>
-    </index>
-    <index id="342" parent="242" name="fk_rails_e8090303af">
-      <ColNames>alimento_id</ColNames>
-      <Type>btree</Type>
-    </index>
-    <key id="343" parent="242" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <foreign-key id="344" parent="242" name="fk_rails_b9f587d0ff">
-      <ColNames>paciente_id</ColNames>
-      <RefTableName>pacientes</RefTableName>
-      <RefColNames>id</RefColNames>
-    </foreign-key>
-    <foreign-key id="345" parent="242" name="fk_rails_e8090303af">
-      <ColNames>alimento_id</ColNames>
-      <RefTableName>alimentos</RefTableName>
-      <RefColNames>id</RefColNames>
-    </foreign-key>
-    <column id="346" parent="243" name="id">
-      <Position>1</Position>
-      <DataType>bigint(20)|0s</DataType>
-      <NotNull>1</NotNull>
-      <SequenceIdentity>null</SequenceIdentity>
-    </column>
-    <column id="347" parent="243" name="paciente_id">
-      <Position>2</Position>
-      <DataType>bigint(20)|0s</DataType>
-    </column>
-    <column id="348" parent="243" name="tabaco">
-      <Position>3</Position>
-      <DataType>int(11)|0s</DataType>
-    </column>
-    <column id="349" parent="243" name="alcohol">
-      <Position>4</Position>
-      <DataType>int(11)|0s</DataType>
-    </column>
-    <column id="350" parent="243" name="otros">
-      <Position>5</Position>
-      <DataType>varchar(50)|0s</DataType>
-    </column>
-    <column id="351" parent="243" name="preferida">
-      <Position>6</Position>
-      <DataType>int(11)|0s</DataType>
-    </column>
-    <column id="352" parent="243" name="tiempo_consumo">
-      <Position>7</Position>
-      <DataType>int(11)|0s</DataType>
-    </column>
-    <column id="353" parent="243" name="average_dream">
-      <Position>8</Position>
-      <DataType>int(11)|0s</DataType>
-    </column>
-    <column id="354" parent="243" name="cantidad_agua">
+    <column id="333" parent="242" name="monocitos">
       <Position>9</Position>
-      <DataType>int(11)|0s</DataType>
+      <DataType>float|0s</DataType>
     </column>
-    <column id="355" parent="243" name="numero_comidas">
+    <column id="334" parent="242" name="linfocitos">
       <Position>10</Position>
-      <DataType>int(11)|0s</DataType>
+      <DataType>float|0s</DataType>
     </column>
-    <column id="356" parent="243" name="created_at">
+    <column id="335" parent="242" name="created_at">
       <Position>11</Position>
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="357" parent="243" name="updated_at">
+    <column id="336" parent="242" name="updated_at">
       <Position>12</Position>
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="358" parent="243" name="fk_rails_214cbc1f65">
+    <index id="337" parent="242" name="fk_rails_abbb9af78b">
       <ColNames>paciente_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="359" parent="243" name="PRIMARY">
+    <key id="338" parent="242" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="360" parent="243" name="fk_rails_214cbc1f65">
+    <foreign-key id="339" parent="242" name="fk_rails_abbb9af78b">
       <ColNames>paciente_id</ColNames>
       <RefTableName>pacientes</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="361" parent="244" name="id">
+    <column id="340" parent="243" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="362" parent="244" name="cedula">
+    <column id="341" parent="243" name="nutriologo_id">
       <Position>2</Position>
-      <DataType>varchar(255)|0s</DataType>
+      <DataType>bigint(20)|0s</DataType>
     </column>
-    <column id="363" parent="244" name="login">
+    <column id="342" parent="243" name="paciente_id">
       <Position>3</Position>
-      <DataType>varchar(255)|0s</DataType>
+      <DataType>bigint(20)|0s</DataType>
     </column>
-    <column id="364" parent="244" name="password_digest">
+    <column id="343" parent="243" name="signo_id">
       <Position>4</Position>
+      <DataType>bigint(20)|0s</DataType>
+    </column>
+    <column id="344" parent="243" name="problema_id">
+      <Position>5</Position>
+      <DataType>bigint(20)|0s</DataType>
+    </column>
+    <column id="345" parent="243" name="anotaciones">
+      <Position>6</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="365" parent="244" name="created_at">
-      <Position>5</Position>
+    <column id="346" parent="243" name="created_at">
+      <Position>7</Position>
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="366" parent="244" name="updated_at">
-      <Position>6</Position>
+    <column id="347" parent="243" name="updated_at">
+      <Position>8</Position>
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="367" parent="244" name="PRIMARY">
+    <index id="348" parent="243" name="fk_rails_16d43c96ef">
+      <ColNames>nutriologo_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="349" parent="243" name="fk_rails_f9df072331">
+      <ColNames>paciente_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="350" parent="243" name="fk_rails_8aa92350d9">
+      <ColNames>signo_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="351" parent="243" name="fk_rails_c07ffc045f">
+      <ColNames>problema_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="352" parent="243" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
+    <foreign-key id="353" parent="243" name="fk_rails_16d43c96ef">
+      <ColNames>nutriologo_id</ColNames>
+      <RefTableName>nutriologos</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="354" parent="243" name="fk_rails_f9df072331">
+      <ColNames>paciente_id</ColNames>
+      <RefTableName>pacientes</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="355" parent="243" name="fk_rails_8aa92350d9">
+      <ColNames>signo_id</ColNames>
+      <RefTableName>signos</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="356" parent="243" name="fk_rails_c07ffc045f">
+      <ColNames>problema_id</ColNames>
+      <RefTableName>problemas</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="357" parent="244" name="id">
+      <Position>1</Position>
+      <DataType>bigint(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="358" parent="244" name="paciente_id">
+      <Position>2</Position>
+      <DataType>bigint(20)|0s</DataType>
+    </column>
+    <column id="359" parent="244" name="alimento_id">
+      <Position>3</Position>
+      <DataType>bigint(20)|0s</DataType>
+    </column>
+    <column id="360" parent="244" name="comida">
+      <Position>4</Position>
+      <DataType>int(11)|0s</DataType>
+    </column>
+    <column id="361" parent="244" name="created_at">
+      <Position>5</Position>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="362" parent="244" name="updated_at">
+      <Position>6</Position>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="363" parent="244" name="fk_rails_b9f587d0ff">
+      <ColNames>paciente_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="364" parent="244" name="fk_rails_e8090303af">
+      <ColNames>alimento_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="365" parent="244" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="366" parent="244" name="fk_rails_b9f587d0ff">
+      <ColNames>paciente_id</ColNames>
+      <RefTableName>pacientes</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="367" parent="244" name="fk_rails_e8090303af">
+      <ColNames>alimento_id</ColNames>
+      <RefTableName>alimentos</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
     <column id="368" parent="245" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="369" parent="245" name="domicilio">
+    <column id="369" parent="245" name="paciente_id">
       <Position>2</Position>
-      <DataType>varchar(255)|0s</DataType>
+      <DataType>bigint(20)|0s</DataType>
     </column>
-    <column id="370" parent="245" name="civil">
+    <column id="370" parent="245" name="tabaco">
       <Position>3</Position>
-      <DataType>varchar(255)|0s</DataType>
-    </column>
-    <column id="371" parent="245" name="nss">
-      <Position>4</Position>
-      <DataType>varchar(255)|0s</DataType>
-    </column>
-    <column id="372" parent="245" name="edad">
-      <Position>5</Position>
       <DataType>int(11)|0s</DataType>
     </column>
-    <column id="373" parent="245" name="peso">
+    <column id="371" parent="245" name="alcohol">
+      <Position>4</Position>
+      <DataType>int(11)|0s</DataType>
+    </column>
+    <column id="372" parent="245" name="otros">
+      <Position>5</Position>
+      <DataType>varchar(50)|0s</DataType>
+    </column>
+    <column id="373" parent="245" name="preferida">
       <Position>6</Position>
-      <DataType>float|0s</DataType>
+      <DataType>int(11)|0s</DataType>
     </column>
-    <column id="374" parent="245" name="talla">
+    <column id="374" parent="245" name="tiempo_consumo">
       <Position>7</Position>
-      <DataType>float|0s</DataType>
+      <DataType>int(11)|0s</DataType>
     </column>
-    <column id="375" parent="245" name="imc">
+    <column id="375" parent="245" name="average_dream">
       <Position>8</Position>
-      <DataType>float|0s</DataType>
+      <DataType>int(11)|0s</DataType>
     </column>
-    <column id="376" parent="245" name="t_sangre">
+    <column id="376" parent="245" name="cantidad_agua">
       <Position>9</Position>
-      <DataType>varchar(255)|0s</DataType>
+      <DataType>int(11)|0s</DataType>
     </column>
-    <column id="377" parent="245" name="created_at">
+    <column id="377" parent="245" name="numero_comidas">
       <Position>10</Position>
-      <DataType>datetime|0s</DataType>
-      <NotNull>1</NotNull>
+      <DataType>int(11)|0s</DataType>
     </column>
-    <column id="378" parent="245" name="updated_at">
+    <column id="378" parent="245" name="created_at">
       <Position>11</Position>
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="379" parent="245" name="nutriologo_id">
+    <column id="379" parent="245" name="updated_at">
       <Position>12</Position>
-      <DataType>bigint(20)|0s</DataType>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <index id="380" parent="245" name="fk_rails_1721da2f91">
-      <ColNames>nutriologo_id</ColNames>
+    <index id="380" parent="245" name="fk_rails_214cbc1f65">
+      <ColNames>paciente_id</ColNames>
       <Type>btree</Type>
     </index>
     <key id="381" parent="245" name="PRIMARY">
@@ -1355,9 +1363,9 @@ SELECT|sys.sys_config
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="382" parent="245" name="fk_rails_1721da2f91">
-      <ColNames>nutriologo_id</ColNames>
-      <RefTableName>nutriologos</RefTableName>
+    <foreign-key id="382" parent="245" name="fk_rails_214cbc1f65">
+      <ColNames>paciente_id</ColNames>
+      <RefTableName>pacientes</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
     <column id="383" parent="246" name="id">
@@ -1366,352 +1374,439 @@ SELECT|sys.sys_config
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="384" parent="246" name="nombre">
+    <column id="384" parent="246" name="cedula">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="385" parent="246" name="paterno">
+    <column id="385" parent="246" name="login">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="386" parent="246" name="materno">
+    <column id="386" parent="246" name="password_digest">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="387" parent="246" name="sexo">
+    <column id="387" parent="246" name="created_at">
       <Position>5</Position>
-      <DataType>varchar(2)|0s</DataType>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="388" parent="246" name="telefono">
+    <column id="388" parent="246" name="updated_at">
       <Position>6</Position>
-      <DataType>varchar(255)|0s</DataType>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="389" parent="246" name="correo">
-      <Position>7</Position>
-      <DataType>varchar(255)|0s</DataType>
-    </column>
-    <column id="390" parent="246" name="perstable_type">
-      <Position>8</Position>
-      <DataType>varchar(255)|0s</DataType>
-    </column>
-    <column id="391" parent="246" name="perstable_id">
-      <Position>9</Position>
+    <key id="389" parent="246" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="390" parent="247" name="id">
+      <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="392" parent="246" name="created_at">
+    <column id="391" parent="247" name="domicilio">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+    </column>
+    <column id="392" parent="247" name="civil">
+      <Position>3</Position>
+      <DataType>varchar(255)|0s</DataType>
+    </column>
+    <column id="393" parent="247" name="nss">
+      <Position>4</Position>
+      <DataType>varchar(255)|0s</DataType>
+    </column>
+    <column id="394" parent="247" name="edad">
+      <Position>5</Position>
+      <DataType>int(11)|0s</DataType>
+    </column>
+    <column id="395" parent="247" name="peso">
+      <Position>6</Position>
+      <DataType>float|0s</DataType>
+    </column>
+    <column id="396" parent="247" name="talla">
+      <Position>7</Position>
+      <DataType>float|0s</DataType>
+    </column>
+    <column id="397" parent="247" name="imc">
+      <Position>8</Position>
+      <DataType>float|0s</DataType>
+    </column>
+    <column id="398" parent="247" name="t_sangre">
+      <Position>9</Position>
+      <DataType>varchar(255)|0s</DataType>
+    </column>
+    <column id="399" parent="247" name="created_at">
       <Position>10</Position>
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="393" parent="246" name="updated_at">
+    <column id="400" parent="247" name="updated_at">
       <Position>11</Position>
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="394" parent="246" name="index_personas_on_perstable_type_and_perstable_id">
+    <column id="401" parent="247" name="nutriologo_id">
+      <Position>12</Position>
+      <DataType>bigint(20)|0s</DataType>
+    </column>
+    <index id="402" parent="247" name="fk_rails_1721da2f91">
+      <ColNames>nutriologo_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="403" parent="247" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="404" parent="247" name="fk_rails_1721da2f91">
+      <ColNames>nutriologo_id</ColNames>
+      <RefTableName>nutriologos</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="405" parent="248" name="id">
+      <Position>1</Position>
+      <DataType>bigint(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="406" parent="248" name="nombre">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+    </column>
+    <column id="407" parent="248" name="paterno">
+      <Position>3</Position>
+      <DataType>varchar(255)|0s</DataType>
+    </column>
+    <column id="408" parent="248" name="materno">
+      <Position>4</Position>
+      <DataType>varchar(255)|0s</DataType>
+    </column>
+    <column id="409" parent="248" name="sexo">
+      <Position>5</Position>
+      <DataType>varchar(2)|0s</DataType>
+    </column>
+    <column id="410" parent="248" name="telefono">
+      <Position>6</Position>
+      <DataType>varchar(255)|0s</DataType>
+    </column>
+    <column id="411" parent="248" name="correo">
+      <Position>7</Position>
+      <DataType>varchar(255)|0s</DataType>
+    </column>
+    <column id="412" parent="248" name="perstable_type">
+      <Position>8</Position>
+      <DataType>varchar(255)|0s</DataType>
+    </column>
+    <column id="413" parent="248" name="perstable_id">
+      <Position>9</Position>
+      <DataType>bigint(20)|0s</DataType>
+    </column>
+    <column id="414" parent="248" name="created_at">
+      <Position>10</Position>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="415" parent="248" name="updated_at">
+      <Position>11</Position>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="416" parent="248" name="index_personas_on_perstable_type_and_perstable_id">
       <ColNames>perstable_type
 perstable_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="395" parent="246" name="PRIMARY">
+    <key id="417" parent="248" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="396" parent="247" name="id">
+    <column id="418" parent="249" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="397" parent="247" name="paciente_id">
+    <column id="419" parent="249" name="paciente_id">
       <Position>2</Position>
       <DataType>bigint(20)|0s</DataType>
     </column>
-    <column id="398" parent="247" name="suplemento_id">
+    <column id="420" parent="249" name="suplemento_id">
       <Position>3</Position>
       <DataType>bigint(20)|0s</DataType>
     </column>
-    <column id="399" parent="247" name="frecuencia">
+    <column id="421" parent="249" name="frecuencia">
       <Position>4</Position>
       <DataType>int(11)|0s</DataType>
     </column>
-    <column id="400" parent="247" name="cantidad">
+    <column id="422" parent="249" name="created_at">
       <Position>5</Position>
-      <DataType>varchar(255)|0s</DataType>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="401" parent="247" name="inicio">
+    <column id="423" parent="249" name="updated_at">
       <Position>6</Position>
-      <DataType>date|0s</DataType>
-    </column>
-    <column id="402" parent="247" name="fin">
-      <Position>7</Position>
-      <DataType>date|0s</DataType>
-    </column>
-    <column id="403" parent="247" name="created_at">
-      <Position>8</Position>
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="404" parent="247" name="updated_at">
-      <Position>9</Position>
-      <DataType>datetime|0s</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <index id="405" parent="247" name="fk_rails_d24e75bcba">
+    <index id="424" parent="249" name="fk_rails_d24e75bcba">
       <ColNames>paciente_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="406" parent="247" name="fk_rails_efc7d13909">
+    <index id="425" parent="249" name="fk_rails_efc7d13909">
       <ColNames>suplemento_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="407" parent="247" name="PRIMARY">
+    <key id="426" parent="249" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="408" parent="247" name="fk_rails_d24e75bcba">
+    <foreign-key id="427" parent="249" name="fk_rails_d24e75bcba">
       <ColNames>paciente_id</ColNames>
       <RefTableName>pacientes</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="409" parent="247" name="fk_rails_efc7d13909">
+    <foreign-key id="428" parent="249" name="fk_rails_efc7d13909">
       <ColNames>suplemento_id</ColNames>
       <RefTableName>suplementos</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="410" parent="248" name="id">
+    <column id="429" parent="250" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="411" parent="248" name="diarrea">
+    <column id="430" parent="250" name="diarrea">
       <Position>2</Position>
       <DataType>tinyint(1)|0s</DataType>
     </column>
-    <column id="412" parent="248" name="nauseas">
+    <column id="431" parent="250" name="nauseas">
       <Position>3</Position>
       <DataType>tinyint(1)|0s</DataType>
     </column>
-    <column id="413" parent="248" name="obesidad">
+    <column id="432" parent="250" name="obesidad">
       <Position>4</Position>
       <DataType>tinyint(1)|0s</DataType>
     </column>
-    <column id="414" parent="248" name="estrenimiento">
+    <column id="433" parent="250" name="estrenimiento">
       <Position>5</Position>
       <DataType>tinyint(1)|0s</DataType>
     </column>
-    <column id="415" parent="248" name="gastritis">
+    <column id="434" parent="250" name="gastritis">
       <Position>6</Position>
       <DataType>tinyint(1)|0s</DataType>
     </column>
-    <column id="416" parent="248" name="vomito">
+    <column id="435" parent="250" name="vomito">
       <Position>7</Position>
       <DataType>tinyint(1)|0s</DataType>
     </column>
-    <column id="417" parent="248" name="insomnio">
+    <column id="436" parent="250" name="insomnio">
       <Position>8</Position>
       <DataType>tinyint(1)|0s</DataType>
     </column>
-    <column id="418" parent="248" name="ansiedad">
+    <column id="437" parent="250" name="ansiedad">
       <Position>9</Position>
       <DataType>tinyint(1)|0s</DataType>
     </column>
-    <column id="419" parent="248" name="created_at">
+    <column id="438" parent="250" name="created_at">
       <Position>10</Position>
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="420" parent="248" name="updated_at">
+    <column id="439" parent="250" name="updated_at">
       <Position>11</Position>
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="421" parent="248" name="PRIMARY">
+    <key id="440" parent="250" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="422" parent="249" name="id">
+    <column id="441" parent="251" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="423" parent="249" name="paciente_id">
+    <column id="442" parent="251" name="paciente_id">
       <Position>2</Position>
       <DataType>bigint(20)|0s</DataType>
     </column>
-    <column id="424" parent="249" name="nitrogenourea">
+    <column id="443" parent="251" name="nitrogenourea">
       <Position>3</Position>
       <DataType>float|0s</DataType>
     </column>
-    <column id="425" parent="249" name="glucosa">
+    <column id="444" parent="251" name="glucosa">
       <Position>4</Position>
       <DataType>float|0s</DataType>
     </column>
-    <column id="426" parent="249" name="creatina">
+    <column id="445" parent="251" name="creatina">
       <Position>5</Position>
       <DataType>float|0s</DataType>
     </column>
-    <column id="427" parent="249" name="acido_urico">
+    <column id="446" parent="251" name="acido_urico">
       <Position>6</Position>
       <DataType>float|0s</DataType>
     </column>
-    <column id="428" parent="249" name="trigliceridos">
+    <column id="447" parent="251" name="trigliceridos">
       <Position>7</Position>
       <DataType>float|0s</DataType>
     </column>
-    <column id="429" parent="249" name="colesterol">
+    <column id="448" parent="251" name="colesterol">
       <Position>8</Position>
       <DataType>float|0s</DataType>
     </column>
-    <column id="430" parent="249" name="bilirrubina">
+    <column id="449" parent="251" name="bilirrubina">
       <Position>9</Position>
       <DataType>float|0s</DataType>
     </column>
-    <column id="431" parent="249" name="dhl">
+    <column id="450" parent="251" name="dhl">
       <Position>10</Position>
       <DataType>float|0s</DataType>
     </column>
-    <column id="432" parent="249" name="created_at">
+    <column id="451" parent="251" name="created_at">
       <Position>11</Position>
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="433" parent="249" name="updated_at">
+    <column id="452" parent="251" name="updated_at">
       <Position>12</Position>
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="434" parent="249" name="fk_rails_dc264a5f49">
+    <index id="453" parent="251" name="fk_rails_dc264a5f49">
       <ColNames>paciente_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="435" parent="249" name="PRIMARY">
+    <key id="454" parent="251" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="436" parent="249" name="fk_rails_dc264a5f49">
+    <foreign-key id="455" parent="251" name="fk_rails_dc264a5f49">
       <ColNames>paciente_id</ColNames>
       <RefTableName>pacientes</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="437" parent="250" name="version">
+    <column id="456" parent="252" name="version">
       <Position>1</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="438" parent="250" name="PRIMARY">
+    <key id="457" parent="252" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>version</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="439" parent="251" name="id">
+    <column id="458" parent="253" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="440" parent="251" name="cabello">
+    <column id="459" parent="253" name="cabello">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
     </column>
-    <column id="441" parent="251" name="piel">
+    <column id="460" parent="253" name="piel">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
     </column>
-    <column id="442" parent="251" name="nails">
+    <column id="461" parent="253" name="nails">
       <Position>4</Position>
       <DataType>int(11)|0s</DataType>
     </column>
-    <column id="443" parent="251" name="ojos">
+    <column id="462" parent="253" name="ojos">
       <Position>5</Position>
       <DataType>int(11)|0s</DataType>
     </column>
-    <column id="444" parent="251" name="peso_corporal">
+    <column id="463" parent="253" name="peso_corporal">
       <Position>6</Position>
       <DataType>float|0s</DataType>
     </column>
-    <column id="445" parent="251" name="presion_sanguinea">
+    <column id="464" parent="253" name="presion_sanguinea">
       <Position>7</Position>
       <DataType>float|0s</DataType>
     </column>
-    <column id="446" parent="251" name="frecuencia_respiratoria">
+    <column id="465" parent="253" name="frecuencia_respiratoria">
       <Position>8</Position>
       <DataType>float|0s</DataType>
     </column>
-    <column id="447" parent="251" name="frecuencia_cardiaca">
+    <column id="466" parent="253" name="frecuencia_cardiaca">
       <Position>9</Position>
       <DataType>float|0s</DataType>
     </column>
-    <column id="448" parent="251" name="created_at">
+    <column id="467" parent="253" name="created_at">
       <Position>10</Position>
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="449" parent="251" name="updated_at">
+    <column id="468" parent="253" name="updated_at">
       <Position>11</Position>
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="450" parent="251" name="PRIMARY">
+    <key id="469" parent="253" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="451" parent="252" name="id">
+    <column id="470" parent="254" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="452" parent="252" name="nombre">
+    <column id="471" parent="254" name="nombre">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="453" parent="252" name="marca">
+    <column id="472" parent="254" name="marca">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="454" parent="252" name="formato">
+    <column id="473" parent="254" name="formato">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="455" parent="252" name="peso_producto">
+    <column id="474" parent="254" name="peso_producto">
       <Position>5</Position>
-      <DataType>varchar(255)|0s</DataType>
+      <DataType>float|0s</DataType>
     </column>
-    <column id="456" parent="252" name="no_servicios">
+    <column id="475" parent="254" name="no_servicios">
       <Position>6</Position>
       <DataType>int(11)|0s</DataType>
     </column>
-    <column id="457" parent="252" name="precio">
+    <column id="476" parent="254" name="precio">
       <Position>7</Position>
       <DataType>float|0s</DataType>
     </column>
-    <column id="458" parent="252" name="contenido">
+    <column id="477" parent="254" name="contenido">
       <Position>8</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="459" parent="252" name="informacion">
+    <column id="478" parent="254" name="informacion">
       <Position>9</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="460" parent="252" name="created_at">
+    <column id="479" parent="254" name="created_at">
       <Position>10</Position>
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="461" parent="252" name="updated_at">
+    <column id="480" parent="254" name="updated_at">
       <Position>11</Position>
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="462" parent="252" name="PRIMARY">
+    <key id="481" parent="254" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>

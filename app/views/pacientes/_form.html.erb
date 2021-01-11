@@ -1,4 +1,4 @@
-<%= form_with(model: @persona, id: 'formulario_pacientes', url: pacientes_path, local: true) do |persona| %>
+<%= form_with(model: @persona, id: 'formulario_pacientes', url: url, local: true) do |persona| %>
 
   <div class="form-group">
     <%= persona.text_field :nombre, placeholder: "Introduzaca su Nombre"%>
@@ -65,9 +65,11 @@
                                                                 ["B negativo","B negativo"], ["B positivo","B positivo"], ["AB negativo","AB negativo"],
                                                                 ["AB positivo","AB positivo"]])%>
     </div>
+    <%= paciente_fields.hidden_field(:nutriologo_id, :value => session[:nutriologo_id]) %>
   <% end %>
   <br>
   <div class="actions">
     <%= persona.submit 'Crear', class: 'btn btn-primary'%>
+
   </div>
 <% end %>

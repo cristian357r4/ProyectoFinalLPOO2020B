@@ -7,11 +7,18 @@ class HomeController < ApplicationController
   def registro
     @nutriologo = Nutriologo.new(params[:persona][:nutriologo].permit(:cedula, :login, :password))
     @persona = @nutriologo.personas.new(params[:persona].permit(:nombre,:paterno,:materno,
-                                                               :sexo, :telefono, :correo))
-    @persona.save
+                                                                :sexo, :telefono, :correo))
+
+    if @persona.save
+      flash[:succes] = 'Se ha registrado con exito'
+      redirect_to login_path
+    else
+      flash[:danger] = 'Ocurrio algo mientras se guardaban sus datos y no se pudo registrar intente nuevamente'
+      redirect_to login_path
+    end
   end
 
-private
+  private
   def nutriparams
   end
 end

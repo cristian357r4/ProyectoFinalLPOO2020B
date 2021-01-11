@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nutriologo:</strong>
+  <%= @consulta.nutriologo %>
+</p>
+
+<p>
+  <strong>Paciente:</strong>
+  <%= @consulta.paciente %>
+</p>
+
+<p>
+  <strong>Signo:</strong>
+  <%= @consulta.signo %>
+</p>
+
+<p>
+  <strong>Problema:</strong>
+  <%= @consulta.problema %>
+</p>
+
+<p>
+  <strong>Anotaciones:</strong>
+  <%= @consulta.anotaciones %>
+</p>
+
+<%= link_to 'Edit', edit_consulta_path(@consulta) %> |
+<%= link_to 'Back', consultas_path %>

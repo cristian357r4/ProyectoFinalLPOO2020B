@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
+
+  resources :consultas
+  resources :personas
+  resources :alimentos
   resources :suplementos
   resources :signos
   resources :problemas
-  resources :pacientes, only: [:index, :new, :create, :update]
+  resources :pacientes, only: [:index, :new, :create]
 
   #ruta no acccesible
   match 'pacientes/:id/editar' => 'pacientes#edit', via: :get, :as => :editar_paciente
+  match 'pacientes/:id/update' => 'pacientes#update', via: :patch, :as => :update_paciente
   match 'pacientes/:id/eliminar' => 'pacientes#destroy', via: :delete, :as => :eliminar_paciente
   match 'pacientes/:id' => 'pacientes#show', via: :get, :as => :mostrar_paciente
 
@@ -49,14 +54,36 @@ Rails.application.routes.draw do
   match 'paciente/:paciente_id/antecedentes/index' => 'antecedentes#index', via: :get, :as => :index_antecedente
   match 'antecedente/:id/delete' => 'antecedentes#destroy', via: :delete, :as => :eliminar_antecedente
 
+  #plan de suplementos
+  match 'paciente/:paciente_id/plan_suplementos/new' => 'plansuplementos#new', via: :get, :as => :new_plan
+  match 'plan_suplemento/create' => 'plansuplementos#create', via: :post, :as => :create_plan
+  match 'plan_suplemento/:id/update' => 'plansuplementos#update', via: :patch, :as => :update_plan
+  match 'plan_suplemento/:id/edit' => 'plansuplementos#edit', via: :get, :as => :edit_plan
+  match 'paciente/:paciente_id/plan_suplementos/index' => 'plansuplementos#index', via: :get, :as => :index_plan
+  match 'plan_suplemento/:id/delete' => 'plansuplementos#destroy', via: :delete, :as => :eliminar_plan
 
+  #dietas
+  match 'paciente/:paciente_id/dieta/new' => 'dietas#new', via: :get, :as => :new_dieta
+  match 'dieta/create' => 'dietas#create', via: :post, :as => :create_dieta
+  match 'dieta/:id/update' => 'dietas#update', via: :patch, :as => :update_dieta
+  match 'dieta/:id/edit' => 'dietas#edit', via: :get, :as => :edit_dieta
+  match 'paciente/:paciente_id/dietas/index' => 'dietas#index', via: :get, :as => :index_dieta
+  match 'dieta/:id/delete' => 'dietas#destroy', via: :delete, :as => :eliminar_dieta
 
 
   get 'nutrismart/home'
-  resources :personas
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   match 'registrar/nutriologo', to: 'home#registro', via: :post, :as  => :guardar_nutriologo
-  root :to => 'nutrismart#home'
+
+  get 'login', to: 'sessions#new'
+  match 'login' => 'sessions#create', via: :post
+  delete 'logout', to: 'sessions#destroy'
+  match 'register' => 'sessions#register', via: :get, :as => :registrar_nutriologo
+
+  match 'home/index' => 'home#index', via:  :get, :as => :home_path
+
+
+  root :to => 'sessions#new'
 end

@@ -1,0 +1,30 @@
+<h1>Alimentos</h1>
+
+<div class="card shadow mb-4">
+  <div class="card-header py3">
+    <h6 class="m-0 font-weight-bold text-primary">Detalle de Alimentos</h6>
+  </div>
+
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="responsive nowrap table table-hover" id="dttb-alimentos" data-sort="true" data-source="<%= url_for(format: :json)%>">
+        <thead>
+        <tr>
+          <th data-data="nombre">Nombre</th>
+          <th data-data="grupo_alimenticio">Grupo alimenticio</th>
+          <th data-data="subgrupo_alimenticio">Subgrupo alimenticio</th>
+          <th data-data="caracteristicas">Caracteristicas</th>
+          <th data-data="frecuencia">Frecuencia</th>
+          <th data-data="racionexporcion">Raciones x porcion</th>
+          <th data-data="mxcasera">Medida casera</th>
+          <th data-data="nutrientes">Nutrientes</th>
+          <th data-data="url" data-orderable="false" data-class-name="all" data-searchable="false" class="skip-export" width="100px">Acciones</th>
+        </tr>
+        </thead>
+      </table>
+    </div>
+  </div>
+  <%= link_to 'Nuevo Alimento', new_alimento_path , class: 'btn btn-primary'%>
+</div>
+<br>
+

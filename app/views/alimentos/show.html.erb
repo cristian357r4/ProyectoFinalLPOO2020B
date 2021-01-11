@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @alimento.nombre %>
+</p>
+
+<p>
+  <strong>Grupo alimenticio:</strong>
+  <%= @alimento.grupo_alimenticio %>
+</p>
+
+<p>
+  <strong>Subgrupo alimenticio:</strong>
+  <%= @alimento.subgrupo_alimenticio %>
+</p>
+
+<p>
+  <strong>Caracteristicas:</strong>
+  <%= @alimento.caracteristicas %>
+</p>
+
+<p>
+  <strong>Frecuencia:</strong>
+  <%= @alimento.frecuencia %>
+</p>
+
+<p>
+  <strong>Racion x porcion:</strong>
+  <%= @alimento.racionexporcion %>
+</p>
+
+<p>
+  <strong>Mxcasera:</strong>
+  <%= @alimento.mxcasera %>
+</p>
+
+<p>
+  <strong>Nutrientes:</strong>
+  <%= @alimento.nutrientes %>
+</p>
+
+<%= link_to 'Edit', edit_alimento_path(@alimento) %> |
+<%= link_to 'Back', alimentos_path %>

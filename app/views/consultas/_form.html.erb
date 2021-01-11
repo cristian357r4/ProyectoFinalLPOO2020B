@@ -1,0 +1,42 @@
+<%= form_with(model: consulta, local: true) do |form| %>
+  <% if consulta.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(consulta.errors.count, "error") %> prohibited this consulta from being saved:</h2>
+
+      <ul>
+      <% consulta.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :nutriologo_id %>
+    <%= form.text_field :nutriologo_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :paciente_id %>
+    <%= form.text_field :paciente_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :signo_id %>
+    <%= form.text_field :signo_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :problema_id %>
+    <%= form.text_field :problema_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :anotaciones %>
+    <%= form.text_area :anotaciones %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

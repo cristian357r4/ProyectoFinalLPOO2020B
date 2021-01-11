@@ -1,0 +1,31 @@
+<%= form_with(model: plansuplemento, id: 'formulario_plan', url: url, local: true) do |plansuplemento| %>
+  <%= plansuplemento.hidden_field(:paciente_id, :value => params[:paciente_id]) %>
+  <% #form.collection_select :alimento_id, Alimento.order(:nombre), :id, :nombre, include_blank: true %>
+  <div class="form-group">
+    <%= plansuplemento.label 'Suplemento' %><br>
+    <%= plansuplemento.collection_select :suplemento_id, Suplemento.order(:nombre), :id, :nombre, include_blank: true %>
+  </div>
+  <div class="form-group">
+    <%= plansuplemento.label 'Frecuencia por semana' %><br>
+    <div class="row">
+      <div class="col-2">
+        <%= plansuplemento.radio_button :frecuencia,1, :checked => true%>1
+      </div>
+      <div class="col-2">
+        <%= plansuplemento.radio_button :frecuencia,2%>2
+      </div>
+      <div class="col-2">
+        <%= plansuplemento.radio_button :frecuencia,3%>3
+      </div>
+      <div class="col-2">
+        <%= plansuplemento.radio_button :frecuencia,4%>4
+      </div>
+      <div class="col-2">
+        <%= plansuplemento.radio_button :frecuencia,5%>5
+      </div>
+    </div>
+  </div>
+  <div class="actions">
+    <%= plansuplemento.submit 'Guardar', class: 'btn btn-primary' %>
+  </div>
+<% end %>

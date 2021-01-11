@@ -10,11 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_29_231401) do
+ActiveRecord::Schema.define(version: 2021_01_10_114949) do
+
+  create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "record_type", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+  end
+
+  create_table "active_storage_blobs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
+    t.string "key", null: false
+    t.string "filename", null: false
+    t.string "content_type"
+    t.text "metadata"
+    t.bigint "byte_size", null: false
+    t.string "checksum", null: false
+    t.datetime "created_at", null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
 
   create_table "actividades", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.bigint "paciente_id"
-    t.integer "deporte"
+    t.string "deporte", limit: 100
     t.string "descripcion"
     t.string "frecuencia"
     t.integer "duracion"
@@ -24,7 +45,7 @@ ActiveRecord::Schema.define(version: 2020_12_29_231401) do
     t.string "gym"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["paciente_id"], name: "index_actividades_on_paciente_id", unique: false
+    t.index ["paciente_id"], name: "fk_rails_ff0d8c5d9d"
   end
 
   create_table "alimentos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
@@ -67,7 +88,7 @@ ActiveRecord::Schema.define(version: 2020_12_29_231401) do
     t.float "linfocitos"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["paciente_id"], name: "index_biometrias_on_paciente_id", unique: true
+    t.index ["paciente_id"], name: "fk_rails_abbb9af78b"
   end
 
   create_table "consultas", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
@@ -78,37 +99,37 @@ ActiveRecord::Schema.define(version: 2020_12_29_231401) do
     t.string "anotaciones"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["nutriologo_id"], name: "index_consultas_on_nutriologo_id", unique: true
-    t.index ["paciente_id"], name: "index_consultas_on_paciente_id", unique: true
-    t.index ["problema_id"], name: "index_consultas_on_problema_id", unique: true
-    t.index ["signo_id"], name: "index_consultas_on_signo_id", unique: true
+    t.index ["nutriologo_id"], name: "fk_rails_16d43c96ef"
+    t.index ["paciente_id"], name: "fk_rails_f9df072331"
+    t.index ["problema_id"], name: "fk_rails_c07ffc045f"
+    t.index ["signo_id"], name: "fk_rails_8aa92350d9"
   end
 
   create_table "dietas", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.bigint "paciente_id"
     t.bigint "alimento_id"
-    t.integer "comida"
+    t.string "comida", limit: 30
     t.integer "cantidad"
     t.integer "estado"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["alimento_id"], name: "index_dietas_on_alimento_id", unique: true
-    t.index ["paciente_id"], name: "index_dietas_on_paciente_id", unique: true
+    t.index ["alimento_id"], name: "fk_rails_e8090303af"
+    t.index ["paciente_id"], name: "fk_rails_b9f587d0ff"
   end
 
   create_table "habitos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.bigint "paciente_id"
     t.integer "tabaco"
     t.integer "alcohol"
-    t.string "otros"
-    t.string "preferida"
+    t.string "otros", limit: 50
+    t.integer "preferida"
     t.integer "tiempo_consumo"
     t.integer "average_dream"
     t.integer "cantidad_agua"
     t.integer "numero_comidas"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["paciente_id"], name: "index_habitos_on_paciente_id", unique: true
+    t.index ["paciente_id"], name: "fk_rails_214cbc1f65"
   end
 
   create_table "nutriologos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
@@ -153,14 +174,14 @@ ActiveRecord::Schema.define(version: 2020_12_29_231401) do
     t.bigint "suplemento_id"
     t.integer "frecuencia"
     t.string "cantidad"
-    t.date "inicio"
-    t.date "fin"
+    t.datetime "inicio"
+    t.datetime "fin"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["paciente_id"], name: "index_plansuplementos_on_paciente_id", unique: true
-    t.index ["suplemento_id"], name: "index_plansuplementos_on_suplemento_id", unique: true
+    t.index ["paciente_id"], name: "fk_rails_d24e75bcba"
+    t.index ["suplemento_id"], name: "fk_rails_efc7d13909"
   end
-  #cuestionario sera tipo 1 aveces 2 de ves en cuando etc.....
+
   create_table "problemas", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.boolean "diarrea"
     t.boolean "nauseas"
@@ -170,14 +191,6 @@ ActiveRecord::Schema.define(version: 2020_12_29_231401) do
     t.boolean "vomito"
     t.boolean "insomnio"
     t.boolean "ansiedad"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "pruebas", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
-    t.string "capo1"
-    t.string "campo2"
-    t.string "campo3"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -194,7 +207,7 @@ ActiveRecord::Schema.define(version: 2020_12_29_231401) do
     t.float "dhl"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["paciente_id"], name: "index_quimicas_on_paciente_id", unique: true
+    t.index ["paciente_id"], name: "fk_rails_dc264a5f49"
   end
 
   create_table "signos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
@@ -223,6 +236,7 @@ ActiveRecord::Schema.define(version: 2020_12_29_231401) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "actividades", "pacientes"
   add_foreign_key "antecedentes", "pacientes"
   add_foreign_key "biometrias", "pacientes"

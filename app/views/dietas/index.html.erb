@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+<%
+  paciente = Paciente.find(params[:paciente_id])
+  @persona = paciente.personas.last
+%>
+<p>Nombre del Paciente: <%=  @persona.full_name%> </p>
+<hr>
+<div class="col-md-6">
+  <% @dietas.each do |dieta| %>
+    <table class="table table-bordered">
+      <tr>
+        <th>Alimento </th>
+        <td><%= dieta.alimento.nombre%></td>
+      </tr>
+      <tr>
+        <th>Comida</th>
+        <% if dieta.comida == 1 %>
+          <td>Desayuno</td>
+        <% elsif dieta.comida == 2 %>
+          <td>Colacion</td>
+        <% elsif dieta.comida == 3 %>
+          <td>Comida</td>
+        <% elsif dieta.comida == 4 %>
+          <td>Cena</td>
+        <% end %>
+      </tr>
+      <tr>
+        <th><%= link_to 'Editar', edit_dieta_path(dieta.id,paciente_id: dieta.paciente_id),class: 'btn btn-primary' %></th>
+      </tr>
+      <tr>
+        <th><%= link_to 'Eliminar', eliminar_dieta_path(dieta.id,paciente_id: dieta.paciente_id), method: :delete, data: { confirm: 'Estas Seguro'}, class: 'btn btn-danger' %></th>
+      </tr>
+    </table>
+    <hr>
+  <% end %>
+</div>
+<% #TODO Se desactiva el boton %>
+<%= link_to 'Agregar Registro', new_dieta_path(params[:paciente_id]), class: 'btn btn-primary' %>
+<%= link_to "Volver", mostrar_paciente_path(@persona.id) , class: 'btn btn-success'%>

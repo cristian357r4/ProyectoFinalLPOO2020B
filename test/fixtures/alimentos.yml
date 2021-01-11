@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre: MyString
+  grupo_alimenticio: MyString
+  subgrupo_alimenticio: MyString
+  caracteristicas: MyString
+  frecuencia: 
+  mxcasera: MyString
+  nutrientes: MyString
+
+two:
+  nombre: MyString
+  grupo_alimenticio: MyString
+  subgrupo_alimenticio: MyString
+  caracteristicas: MyString
+  frecuencia: 
+  mxcasera: MyString
+  nutrientes: MyString

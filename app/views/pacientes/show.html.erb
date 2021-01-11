@@ -9,7 +9,7 @@
       <div class="card-body">
         <%= render 'datos_paciente' %>
 
-        <%= link_to 'Editar o actualizar datos Personales', mostrar_paciente_path(@paciente.id), class: "btn btn-info" %> |
+        <%= link_to 'Editar o actualizar datos Personales', editar_paciente_path(@paciente.id), class: "btn btn-info" %> |
         <%= link_to 'Volver', pacientes_path, class: "btn btn-success"%>
 
       </div>
@@ -23,8 +23,6 @@
       <div class="card-header py-3">
         <h6 class="m-0 font-weight-bold text-primary">Datos de Control</h6>
         <br>
-        <p>Id Persona:  <%= params[:id] %> </p>
-        <p>Id paciente: <%= @paciente.id %></p>
       </div>
       <div class="card-body">
         <%= link_to 'Quimicas Sanguinea', index_quimica_path(@paciente.id), class: 'btn btn-primary w-100'  %>
@@ -40,6 +38,15 @@
         <br>
         <br>
         <%= link_to 'Antecedentes Clinicos', index_antecedente_path(@paciente.id), class: 'btn btn-primary w-100 '  %>
+        <br>
+        <br>
+        <%= link_to 'Plan de suplementos', index_plan_path(@paciente.id), class: 'btn btn-primary w-100 '  %>
+        <br>
+        <br>
+        <%= link_to 'Dieta', index_dieta_path(@paciente.id), class: 'btn btn-primary w-100 '  %>
+        <br>
+        <br>
+        <%= link_to 'Consulta Falta Implementar', index_dieta_path(@paciente.id), class: 'btn btn-primary w-100 '  %>
       </div>
     </div>
 

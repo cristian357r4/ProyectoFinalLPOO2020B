@@ -1,0 +1,4 @@
+<h1>Registrar Dieta</h1>
+<%= render 'form', dieta: @dieta, url: create_dieta_path %>
+<br>
+<%= link_to 'Regresar', index_dieta_path(params[:paciente_id]), class: 'btn btn-info' %>

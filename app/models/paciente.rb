@@ -6,4 +6,6 @@ class Paciente < ApplicationRecord
   has_many :actividades
   has_many :habitos
   has_many :antecedentes
+  has_many :plansuplementos
+  has_many :dietas
 end

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nutriologo: one
+  paciente: one
+  signo: one
+  problema: one
+  anotaciones: MyText
+
+two:
+  nutriologo: two
+  paciente: two
+  signo: two
+  problema: two
+  anotaciones: MyText
