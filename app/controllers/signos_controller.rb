@@ -1,10 +1,11 @@
 class SignosController < ApplicationController
+  before_action :get_consulta
   before_action :set_signo, only: [:show, :edit, :update, :destroy]
 
   # GET /signos
   # GET /signos.json
   def index
-    @signos = Signo.all
+    @signos = @consulta.signos
   end
 
   # GET /signos/1
@@ -14,7 +15,7 @@ class SignosController < ApplicationController
 
   # GET /signos/new
   def new
-    @signo = Signo.new
+    @signo = @consulta.signos.build
   end
 
   # GET /signos/1/edit
@@ -24,11 +25,11 @@ class SignosController < ApplicationController
   # POST /signos
   # POST /signos.json
   def create
-    @signo = Signo.new(signo_params)
+    @signo = @consulta.signos.build(signo_params)
 
     respond_to do |format|
       if @signo.save
-        format.html { redirect_to @signo, notice: 'Signo was successfully created.' }
+        format.html { redirect_to consulta_signos_path, notice: 'Signo creado correctamente.' }
         format.json { render :show, status: :created, location: @signo }
       else
         format.html { render :new }
@@ -42,7 +43,7 @@ class SignosController < ApplicationController
   def update
     respond_to do |format|
       if @signo.update(signo_params)
-        format.html { redirect_to @signo, notice: 'Signo was successfully updated.' }
+        format.html { redirect_to consulta_signo_path, notice: 'Signo actualizado.' }
         format.json { render :show, status: :ok, location: @signo }
       else
         format.html { render :edit }
@@ -56,19 +57,22 @@ class SignosController < ApplicationController
   def destroy
     @signo.destroy
     respond_to do |format|
-      format.html { redirect_to signos_url, notice: 'Signo was successfully destroyed.' }
+      format.html { redirect_to consulta_signos_path, notice: 'Signo eliminado.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_signo
-      @signo = Signo.find(params[:id])
-    end
+  def get_consulta
+    @consulta = Consulta.find(params[:consulta_id])
+  end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_signo
+    @signo = @consulta.signos.find(params[:id])
+  end
 
-    # Only allow a list of trusted parameters through.
-    def signo_params
-      params.require(:signo).permit(:consulta_id, :cabello, :piel, :nails, :ojos, :peso_corporal, :presion_sanguinea, :frecuencia_respiratoria, :frecuencia_cardiaca)
-    end
+  # Only allow a list of trusted parameters through.
+  def signo_params
+    params.require(:signo).permit(:consulta_id, :cabello, :piel, :nails, :ojos, :peso_corporal, :presion_sanguinea, :frecuencia_respiratoria, :frecuencia_cardiaca)
+  end
 end

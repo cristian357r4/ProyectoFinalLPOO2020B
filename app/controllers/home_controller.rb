@@ -14,7 +14,7 @@ class HomeController < ApplicationController
       redirect_to login_path
     else
       flash[:danger] = 'Ocurrio algo mientras se guardaban sus datos y no se pudo registrar intente nuevamente'
-      redirect_to login_path
+      redirect_to registrar_nutriologo_path
     end
   end
 

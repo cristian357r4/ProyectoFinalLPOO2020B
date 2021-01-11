@@ -8,4 +8,6 @@ class Paciente < ApplicationRecord
   has_many :antecedentes
   has_many :plansuplementos
   has_many :dietas
+
+
 end

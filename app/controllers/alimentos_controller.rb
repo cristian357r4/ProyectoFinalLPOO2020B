@@ -59,17 +59,21 @@ class AlimentosController < ApplicationController
       format.html { redirect_to alimentos_url, notice: 'Alimento was successfully destroyed.' }
       format.json { head :no_content }
     end
+  rescue ActiveRecord::StatementInvalid => e
+    flash[:danger] = 'No se puede eliminar el registro esta en uso'
+    redirect_to pacientes_path
+
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_alimento
-      @alimento = Alimento.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_alimento
+    @alimento = Alimento.find(params[:id])
+  end
 
-    # Only allow a list of trusted parameters through.
-    def alimento_params
-      params.require(:alimento).permit(:nombre, :grupo_alimenticio, :subgrupo_alimenticio, :caracteristicas,
-                                       :frecuencia, :racionexporcion, :mxcasera, :nutrientes)
-    end
+  # Only allow a list of trusted parameters through.
+  def alimento_params
+    params.require(:alimento).permit(:nombre, :grupo_alimenticio, :subgrupo_alimenticio, :caracteristicas,
+                                     :frecuencia, :racionexporcion, :mxcasera, :nutrientes)
+  end
 end

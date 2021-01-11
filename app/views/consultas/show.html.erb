@@ -34,5 +34,19 @@
   </ul>
 <% end %>
 <!--<%#= link_to 'Edit', edit_consulta_path(@consulta) %> |-->
-<%= link_to 'Agregar Problema', consulta_problemas_path(@consulta) %>
+<%= link_to 'Agregar Problema', consulta_problemas_path(@consulta), class: 'btn btn-success' %>|
+<% for signos in @consulta.signos %>
+  <ul>
+    <li>Diarrea: <%= signos.cabello %></li>
+    <li>Nauseas: <%= signos.piel %></li>
+    <li>Obesidad: <%= signos.nails %></li>
+    <li>Estrenimiento <%= signos.ojos %></li>
+    <li>Gastritis: <%= signos.peso_corporal %></li>
+    <li>Vomito: <%= signos.presion_sanguinea %></li>
+    <li>Insomnio: <%= signos.frecuencia_respiratoria %></li>
+    <li>Ansiedad<%= signos.frecuencia_cardiaca %></li>
+  </ul>
+<% end %>
+<%= link_to 'Agregar Signo', consulta_signos_path(@consulta), class: 'btn btn-success' %>|
+
 <%= link_to 'Regresar', consulta_index_path(@consulta.paciente.id), class: 'btn btn-primary w-100 '  %>

@@ -7,25 +7,45 @@
 
   <div class="card-body">
     <div class="table-responsive">
-      <table class="responsive nowrap table table-hover" id="dttb-signos" data-sort="true" data-source="<%= url_for(format: :json)%>">
+      <table class="responsive nowrap table table-hover" id="dttb-signos" data-sort="true" >
         <thead>
-          <tr>
-                          <th data-data="consulta">Consulta</th>
-                          <th data-data="cabello">Cabello</th>
-                          <th data-data="piel">Piel</th>
-                          <th data-data="nails">Nails</th>
-                          <th data-data="ojos">Ojos</th>
-                          <th data-data="peso_corporal">Peso corporal</th>
-                          <th data-data="presion_sanguinea">Presion sanguinea</th>
-                          <th data-data="frecuencia_respiratoria">Frecuencia respiratoria</th>
-                          <th data-data="frecuencia_cardiaca">Frecuencia cardiaca</th>
-                        <th data-data="url" data-orderable="false" data-class-name="all" data-searchable="false" class="skip-export" width="100px">Acciones</th>
-          </tr>
+        <tr>
+          <th >Consulta</th>
+          <th >Cabello</th>
+          <th >Piel</th>
+          <th >Nails</th>
+          <th >Ojos</th>
+          <th >Peso corporal</th>
+          <th >Presion sanguinea</th>
+          <th >Frecuencia respiratoria</th>
+          <th >Frecuencia cardiaca</th>
+          <th data-orderable="false" data-class-name="all" data-searchable="false" class="skip-export" width="100px">Acciones</th>
+        </tr>
         </thead>
+        <tbody>
+        <% @signos.each do |signos| %>
+          <tr>
+            <td><%= signos.consulta.id %></td>
+            <td><%= signos.cabello%></td>
+            <td><%= signos.piel%></td>
+            <td><%= signos.nails%></td>
+            <td><%= signos.ojos%></td>
+            <td><%= signos.peso_corporal%></td>
+            <td><%= signos.presion_sanguinea%></td>
+            <td><%= signos.frecuencia_respiratoria%></td>
+            <td><%= signos.frecuencia_cardiaca%></td>
+            <td>
+              <%=  link_to 'Mostrar', [@consulta], class: 'btn btn-primary' %>
+              <%=  link_to 'Editar', edit_consulta_signo_path(@consulta, signos),  class: 'btn btn-success' %>
+              <%=  link_to 'Eliminar', [@consulta, signos], method: :delete, data: { confirm: 'Estas Seguro?' },  class: 'btn btn-danger'%>
+            </td>
+          </tr>
+        <% end %>
+        </tbody>
       </table>
     </div>
   </div>
-  <%= link_to 'Nuevo Signo', new_signo_path , class: 'btn btn-primary'%>
+  <%= link_to 'Nuevo Signo', new_consulta_signo_path(@consulta), class: 'btn btn-primary'%>
 </div>
 <br>
 

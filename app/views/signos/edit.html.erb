@@ -2,5 +2,5 @@
 
 <%= render 'form', signo: @signo %>
 
-<%= link_to 'Show', @signo %> |
-<%= link_to 'Back', signos_path %>
+<%= link_to 'Mostrar', [@consulta,@signo]%> |
+<%= link_to 'Volver', consulta_signos_path(@consulta)%>

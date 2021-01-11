@@ -43,7 +43,7 @@ class ProblemasController < ApplicationController
   def update
     respond_to do |format|
       if @problema.update(problema_params)
-        format.html { redirect_to consulta_problema_path(@consulta), notice: 'Problema was successfully updated.' }
+        format.html { redirect_to consulta_problema_path(@consulta), notice: 'Problema Actualizado' }
         format.json { render :show, status: :ok, location: @problema }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class ProblemasController < ApplicationController
   def destroy
     @problema.destroy
     respond_to do |format|
-      format.html { redirect_to consulta_problemas_path(@consulta), notice: 'Problema was successfully destroyed.' }
+      format.html { redirect_to consulta_problemas_path(@consulta), notice: 'Problema eliminado' }
       format.json { head :no_content }
     end
   end

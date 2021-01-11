@@ -9,6 +9,26 @@
             <h1 class="h4 text-gray-900 mb-4">Crea tu Cuenta!</h1>
           </div>
           <%= form_with(model: @persona,url: guardar_nutriologo_path ,local: true , class: 'user', id: 'formulario_registro_nutriologo' ) do |persona| %>
+            <% if @persona.errors.any? %>
+              <div class="error_messages">
+                <h2>Registro es invalido</h2>
+                <ul>
+                  <% for message in @persona.errors.full_messages %>
+                    <li><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
+            <% if @nutriologo.errors.any? %>
+              <div class="error_messages">
+                <h2>Registro es invalido</h2>
+                <ul>
+                  <% for message in @nutriologo.errors.full_messages %>
+                    <li><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
             <div class="form-group">
               <%= persona.text_field :nombre, placeholder: "Introduzaca su Nombre", class: ' form-control form-control-user' %>
             </div>

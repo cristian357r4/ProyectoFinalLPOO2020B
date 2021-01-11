@@ -1,6 +1,6 @@
-<h1>Editing Problema</h1>
+<h1>Editar Problema</h1>
 
 <%= render 'form', problema: @problema %>
 
-<%= link_to 'Show', [@consulta,@problema] %> |
-<%= link_to 'Back', consulta_problemas_path(@consulta)%>
+<%= link_to 'Mostrar', [@consulta,@problema], class: 'btn btn-success' %> |
+<%= link_to 'Regresar', consulta_problemas_path(@consulta), class: 'btn btn-info'%>

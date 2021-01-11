@@ -1,4 +1,4 @@
-<%= form_with(model: signo, local: true) do |form| %>
+<%= form_with(model: [@consulta,signo], local: true) do |form| %>
   <% if signo.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(signo.errors.count, "error") %> prohibited this signo from being saved:</h2>
@@ -12,51 +12,50 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :consulta_id %>
-    <%= form.text_field :consulta_id %>
-  </div>
-
-  <div class="field">
     <%= form.label :cabello %>
-    <%= form.check_box :cabello %>
+    <%= form.radio_button :cabello, 0, :checked => true %> Saludable
+    <%= form.radio_button :cabello, 1 %> Con dano
   </div>
 
   <div class="field">
     <%= form.label :piel %>
-    <%= form.check_box :piel %>
+    <%= form.radio_button :piel, 0, :checked => true %> Saludable
+    <%= form.radio_button :piel, 1 %> Con dano
   </div>
 
   <div class="field">
     <%= form.label :nails %>
-    <%= form.check_box :nails %>
+    <%= form.radio_button :nails, 0, :checked => true %> Saludable
+    <%= form.radio_button :nails, 1 %> Con dano
   </div>
 
   <div class="field">
     <%= form.label :ojos %>
-    <%= form.check_box :ojos %>
+    <%= form.radio_button :ojos, 0, :checked => true %> Saludable
+    <%= form.radio_button :ojos, 1 %> Amarillentos o aparrincia poco saludable
   </div>
 
   <div class="field">
     <%= form.label :peso_corporal %>
-    <%= form.text_field :peso_corporal %>
+    <%= form.number_field :peso_corporal %>
   </div>
 
   <div class="field">
     <%= form.label :presion_sanguinea %>
-    <%= form.text_field :presion_sanguinea %>
+    <%= form.number_field :presion_sanguinea %>
   </div>
 
   <div class="field">
     <%= form.label :frecuencia_respiratoria %>
-    <%= form.text_field :frecuencia_respiratoria %>
+    <%= form.number_field :frecuencia_respiratoria %>
   </div>
 
   <div class="field">
     <%= form.label :frecuencia_cardiaca %>
-    <%= form.text_field :frecuencia_cardiaca %>
+    <%= form.number_field :frecuencia_cardiaca %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Guardar', class: 'btn btn-primary' %>
   </div>
 <% end %>

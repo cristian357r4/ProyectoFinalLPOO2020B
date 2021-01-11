@@ -2,7 +2,7 @@
 
 <p>
   <strong>Consulta:</strong>
-  <%= @signo.consulta %>
+  <%= @signo.consulta.id %>
 </p>
 
 <p>
@@ -45,5 +45,5 @@
   <%= @signo.frecuencia_cardiaca %>
 </p>
 
-<%= link_to 'Edit', edit_signo_path(@signo) %> |
-<%= link_to 'Back', signos_path %>
+<%= link_to 'Editar', edit_consulta_signo_path(@consulta,@signo), class: 'btn btn-primary'%> |
+<%= link_to 'VOlver', consulta_signos_path(@consulta), class: 'btn btn-success'%>

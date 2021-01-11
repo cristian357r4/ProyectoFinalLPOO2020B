@@ -2,7 +2,7 @@
 
 <p>
   <strong>Consulta:</strong>
-  <%= @problema.consulta %>
+  <%= @problema.consulta.id %>
 </p>
 
 <p>
@@ -45,5 +45,5 @@
   <%= @problema.ansiedad %>
 </p>
 
-<%= link_to 'Edit', edit_problema_path(@problema) %> |
-<%= link_to 'Back', problemas_path %>
+<%= link_to 'Editar', edit_consulta_problema_path(@problema), class: 'btn btn-info' %> |
+<%= link_to 'Regresar', consulta_problemas_path(@consulta), class: 'btn btn-success' %>

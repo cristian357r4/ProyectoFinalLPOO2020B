@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :signos
-  resources :problemas
   resources :consultas
   resources :consultas, except: [:index, :new] do
     resources :signos

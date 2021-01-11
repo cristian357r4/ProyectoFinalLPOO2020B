@@ -59,6 +59,9 @@ class SuplementosController < ApplicationController
       format.html { redirect_to suplementos_url, notice: 'Suplemento was successfully destroyed.' }
       format.json { head :no_content }
     end
+  rescue ActiveRecord::StatementInvalid => e
+    flash[:danger] = 'No se puede eliminar el registro esta en uso'
+    redirect_to pacientes_path
   end
 
   private
