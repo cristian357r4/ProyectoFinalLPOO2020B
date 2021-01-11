@@ -1,29 +1,38 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Nutriologo:</strong>
-  <%= @consulta.nutriologo %>
-</p>
-
-<p>
   <strong>Paciente:</strong>
-  <%= @consulta.paciente %>
+  <%  paciente = Paciente.find(@consulta.paciente.id)%>
+  <%= paciente.personas.last.full_name %>
 </p>
 
 <p>
-  <strong>Signo:</strong>
-  <%= @consulta.signo %>
+  <strong>Nutriologo:</strong>
+  <% nutriologo = Nutriologo.find(@consulta.nutriologo.id) %>
+  <%= nutriologo.personas.last.nombre  %>
 </p>
 
 <p>
-  <strong>Problema:</strong>
-  <%= @consulta.problema %>
+  <strong>Identificador de la Consulta:</strong>
+  <%= @consulta.id%>
 </p>
-
 <p>
   <strong>Anotaciones:</strong>
   <%= @consulta.anotaciones %>
 </p>
-
-<%= link_to 'Edit', edit_consulta_path(@consulta) %> |
-<%= link_to 'Back', consultas_path %>
+<h2>Problemas</h2>
+<% for problema in @consulta.problemas %>
+  <ul>
+    <li>Diarrea: <%= problema.diarrea %></li>
+    <li>Nauseas: <%= problema.nauseas%></li>
+    <li>Obesidad: <%= problema.obesidad%></li>
+    <li>Estrenimiento <%= problema.estrenimiento%></li>
+    <li>Gastritis: <%= problema.gastritis %></li>
+    <li>Vomito: <%= problema.vomito %></li>
+    <li>Insomnio: <%= problema.insomnio %></li>
+    <li>Ansiedad<%= problema.ansiedad %></li>
+  </ul>
+<% end %>
+<!--<%#= link_to 'Edit', edit_consulta_path(@consulta) %> |-->
+<%= link_to 'Agregar Problema', consulta_problemas_path(@consulta) %>
+<%= link_to 'Regresar', consulta_index_path(@consulta.paciente.id), class: 'btn btn-primary w-100 '  %>

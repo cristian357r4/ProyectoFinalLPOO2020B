@@ -1,20 +1,22 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  cabello: MyString
-  piel: MyString
-  nails: MyString
-  ojos: MyString
+  consulta: one
+  cabello: false
+  piel: false
+  nails: false
+  ojos: false
   peso_corporal: 1.5
   presion_sanguinea: 1.5
   frecuencia_respiratoria: 1.5
   frecuencia_cardiaca: 1.5
 
 two:
-  cabello: MyString
-  piel: MyString
-  nails: MyString
-  ojos: MyString
+  consulta: two
+  cabello: false
+  piel: false
+  nails: false
+  ojos: false
   peso_corporal: 1.5
   presion_sanguinea: 1.5
   frecuencia_respiratoria: 1.5

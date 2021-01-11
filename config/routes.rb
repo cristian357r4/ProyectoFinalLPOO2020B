@@ -1,11 +1,19 @@
 Rails.application.routes.draw do
 
+  resources :signos
+  resources :problemas
   resources :consultas
+  resources :consultas, except: [:index, :new] do
+    resources :signos
+    resources :problemas
+  end
+
+
+  match 'consulta/paciente/:paciente_id/index' => 'consultas#index', via: :get, :as => :consulta_index
+  match 'consulta/paciente/:paciente_id/new' => 'consultas#new', via: :get, :as => :nueva_consulta
   resources :personas
   resources :alimentos
   resources :suplementos
-  resources :signos
-  resources :problemas
   resources :pacientes, only: [:index, :new, :create]
 
   #ruta no acccesible

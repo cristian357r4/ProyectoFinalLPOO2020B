@@ -7,25 +7,45 @@
 
   <div class="card-body">
     <div class="table-responsive">
-      <table class="responsive nowrap table table-hover" id="dttb-problemas" data-sort="true" data-source="<%= url_for(format: :json)%>">
+      <table class="responsive nowrap table table-hover" id="dttb-problemas" data-sort="true" >
         <thead>
         <tr>
-          <th data-data="diarrea">Diarrea</th>
-          <th data-data="nauseas">Nauseas</th>
-          <th data-data="obesidad">Obesidad</th>
-          <th data-data="estrenimiento">Estrenimiento</th>
-          <th data-data="gastritis">Gastritis</th>
-          <th data-data="vomito">Vomito</th>
-          <th data-data="insomnio">Insomnio</th>
-          <th data-data="ansiedad">Ansiedad</th>
-          <th data-data="created_at">Fecha de Registro</th>
-          <th data-data="url" data-orderable="false" data-class-name="all" data-searchable="false" class="skip-export" width="100px">Acciones</th>
+          <th >Consulta</th>
+          <th >Diarrea</th>
+          <th >Nauseas</th>
+          <th >Obesidad</th>
+          <th >Estrenimiento</th>
+          <th >Gastritis</th>
+          <th >Vomito</th>
+          <th >Insomnio</th>
+          <th >Ansiedad</th>
+          <th data-orderable="false" data-class-name="all" data-searchable="false" class="skip-export" width="100px">Acciones</th>
         </tr>
         </thead>
+        <tbody>
+        <% @problemas.each do |problema| %>
+          <tr>
+            <td><%= problema.consulta.id %></td>
+            <td><%= problema.diarrea %></td>
+            <td><%= problema.nauseas%></td>
+            <td><%= problema.obesidad%></td>
+            <td><%= problema.estrenimiento%></td>
+            <td><%= problema.gastritis %></td>
+            <td><%= problema.vomito %></td>
+            <td><%= problema.insomnio %></td>
+            <td><%= problema.ansiedad %></td>
+            <td>
+              <%=  link_to 'Mostrar', [@consulta], class: 'btn btn-primary' %>
+              <%=  link_to 'Editar', edit_consulta_problema_path(@consulta, problema),  class: 'btn btn-success' %>
+              <%=  link_to 'Eliminar', [@consulta, problema], method: :delete, data: { confirm: 'Estas Seguro?' },  class: 'btn btn-danger'%>
+            </td>
+          </tr>
+        <% end %>
+        </tbody>
       </table>
     </div>
   </div>
-  <%= link_to 'Nuevo Problema', new_problema_path, class: 'btn btn-primary'%>
+  <%= link_to 'Nuevo Problema', new_consulta_problema_path(@consulta) , class: 'btn btn-primary'%>
 </div>
 <br>
 

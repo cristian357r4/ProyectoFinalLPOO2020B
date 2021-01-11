@@ -12,23 +12,13 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :nutriologo_id %>
-    <%= form.text_field :nutriologo_id %>
+
+    <%= form.hidden_field(:paciente_id, :value => params[:paciente_id]) %>
   </div>
 
   <div class="field">
-    <%= form.label :paciente_id %>
-    <%= form.text_field :paciente_id %>
-  </div>
 
-  <div class="field">
-    <%= form.label :signo_id %>
-    <%= form.text_field :signo_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :problema_id %>
-    <%= form.text_field :problema_id %>
+    <%= form.hidden_field(:nutriologo_id, :value => session[:nutriologo_id]) %>
   </div>
 
   <div class="field">

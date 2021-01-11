@@ -17,7 +17,7 @@ class SignosControllerTest < ActionDispatch::IntegrationTest
 
   test "should create signo" do
     assert_difference('Signo.count') do
-      post signos_url, params: { signo: { cabello: @signo.cabello, frecuencia_cardiaca: @signo.frecuencia_cardiaca, frecuencia_respiratoria: @signo.frecuencia_respiratoria, nails: @signo.nails, ojos: @signo.ojos, peso_corporal: @signo.peso_corporal, piel: @signo.piel, presion_sanguinea: @signo.presion_sanguinea } }
+      post signos_url, params: { signo: { cabello: @signo.cabello, consulta_id: @signo.consulta_id, frecuencia_cardiaca: @signo.frecuencia_cardiaca, frecuencia_respiratoria: @signo.frecuencia_respiratoria, nails: @signo.nails, ojos: @signo.ojos, peso_corporal: @signo.peso_corporal, piel: @signo.piel, presion_sanguinea: @signo.presion_sanguinea } }
     end
 
     assert_redirected_to signo_url(Signo.last)
@@ -34,7 +34,7 @@ class SignosControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update signo" do
-    patch signo_url(@signo), params: { signo: { cabello: @signo.cabello, frecuencia_cardiaca: @signo.frecuencia_cardiaca, frecuencia_respiratoria: @signo.frecuencia_respiratoria, nails: @signo.nails, ojos: @signo.ojos, peso_corporal: @signo.peso_corporal, piel: @signo.piel, presion_sanguinea: @signo.presion_sanguinea } }
+    patch signo_url(@signo), params: { signo: { cabello: @signo.cabello, consulta_id: @signo.consulta_id, frecuencia_cardiaca: @signo.frecuencia_cardiaca, frecuencia_respiratoria: @signo.frecuencia_respiratoria, nails: @signo.nails, ojos: @signo.ojos, peso_corporal: @signo.peso_corporal, piel: @signo.piel, presion_sanguinea: @signo.presion_sanguinea } }
     assert_redirected_to signo_url(@signo)
   end
 

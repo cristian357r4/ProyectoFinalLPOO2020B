@@ -17,8 +17,6 @@ class ConsultasTest < ApplicationSystemTestCase
     fill_in "Anotaciones", with: @consulta.anotaciones
     fill_in "Nutriologo", with: @consulta.nutriologo_id
     fill_in "Paciente", with: @consulta.paciente_id
-    fill_in "Problema", with: @consulta.problema_id
-    fill_in "Signo", with: @consulta.signo_id
     click_on "Create Consulta"
 
     assert_text "Consulta was successfully created"
@@ -32,8 +30,6 @@ class ConsultasTest < ApplicationSystemTestCase
     fill_in "Anotaciones", with: @consulta.anotaciones
     fill_in "Nutriologo", with: @consulta.nutriologo_id
     fill_in "Paciente", with: @consulta.paciente_id
-    fill_in "Problema", with: @consulta.problema_id
-    fill_in "Signo", with: @consulta.signo_id
     click_on "Update Consulta"
 
     assert_text "Consulta was successfully updated"

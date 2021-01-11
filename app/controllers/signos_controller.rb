@@ -69,6 +69,6 @@ class SignosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def signo_params
-      params.require(:signo).permit(:cabello, :piel, :nails, :ojos, :peso_corporal, :presion_sanguinea, :frecuencia_respiratoria, :frecuencia_cardiaca)
+      params.require(:signo).permit(:consulta_id, :cabello, :piel, :nails, :ojos, :peso_corporal, :presion_sanguinea, :frecuencia_respiratoria, :frecuencia_cardiaca)
     end
 end

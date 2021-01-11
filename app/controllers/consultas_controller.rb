@@ -25,15 +25,12 @@ class ConsultasController < ApplicationController
   # POST /consultas.json
   def create
     @consulta = Consulta.new(consulta_params)
-
-    respond_to do |format|
-      if @consulta.save
-        format.html { redirect_to @consulta, notice: 'Consulta was successfully created.' }
-        format.json { render :show, status: :created, location: @consulta }
-      else
-        format.html { render :new }
-        format.json { render json: @consulta.errors, status: :unprocessable_entity }
-      end
+    if @consulta.save
+      flash[:success] = 'Se creo correctamente la consulta'
+      redirect_to consulta_index_path(@consulta.paciente_id)
+    else
+      flash[:danger] = 'Algo salio Mal'
+      redirect_to consulta_index_path(@consulta.paciente_id)
     end
   end
 
@@ -62,13 +59,13 @@ class ConsultasController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_consulta
-      @consulta = Consulta.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_consulta
+    @consulta = Consulta.find(params[:id])
+  end
 
-    # Only allow a list of trusted parameters through.
-    def consulta_params
-      params.require(:consulta).permit(:nutriologo_id, :paciente_id, :signo_id, :problema_id, :anotaciones)
-    end
+  # Only allow a list of trusted parameters through.
+  def consulta_params
+    params.require(:consulta).permit(:paciente_id, :nutriologo_id, :anotaciones)
+  end
 end

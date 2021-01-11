@@ -14,13 +14,14 @@ class SignosTest < ApplicationSystemTestCase
     visit signos_url
     click_on "New Signo"
 
-    fill_in "Cabello", with: @signo.cabello
+    check "Cabello" if @signo.cabello
+    fill_in "Consulta", with: @signo.consulta_id
     fill_in "Frecuencia cardiaca", with: @signo.frecuencia_cardiaca
     fill_in "Frecuencia respiratoria", with: @signo.frecuencia_respiratoria
-    fill_in "Nails", with: @signo.nails
-    fill_in "Ojos", with: @signo.ojos
+    check "Nails" if @signo.nails
+    check "Ojos" if @signo.ojos
     fill_in "Peso corporal", with: @signo.peso_corporal
-    fill_in "Piel", with: @signo.piel
+    check "Piel" if @signo.piel
     fill_in "Presion sanguinea", with: @signo.presion_sanguinea
     click_on "Create Signo"
 
@@ -32,13 +33,14 @@ class SignosTest < ApplicationSystemTestCase
     visit signos_url
     click_on "Edit", match: :first
 
-    fill_in "Cabello", with: @signo.cabello
+    check "Cabello" if @signo.cabello
+    fill_in "Consulta", with: @signo.consulta_id
     fill_in "Frecuencia cardiaca", with: @signo.frecuencia_cardiaca
     fill_in "Frecuencia respiratoria", with: @signo.frecuencia_respiratoria
-    fill_in "Nails", with: @signo.nails
-    fill_in "Ojos", with: @signo.ojos
+    check "Nails" if @signo.nails
+    check "Ojos" if @signo.ojos
     fill_in "Peso corporal", with: @signo.peso_corporal
-    fill_in "Piel", with: @signo.piel
+    check "Piel" if @signo.piel
     fill_in "Presion sanguinea", with: @signo.presion_sanguinea
     click_on "Update Signo"
 

@@ -17,7 +17,7 @@ class ConsultasControllerTest < ActionDispatch::IntegrationTest
 
   test "should create consulta" do
     assert_difference('Consulta.count') do
-      post consultas_url, params: { consulta: { anotaciones: @consulta.anotaciones, nutriologo_id: @consulta.nutriologo_id, paciente_id: @consulta.paciente_id, problema_id: @consulta.problema_id, signo_id: @consulta.signo_id } }
+      post consultas_url, params: { consulta: { anotaciones: @consulta.anotaciones, nutriologo_id: @consulta.nutriologo_id, paciente_id: @consulta.paciente_id } }
     end
 
     assert_redirected_to consulta_url(Consulta.last)
@@ -34,7 +34,7 @@ class ConsultasControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update consulta" do
-    patch consulta_url(@consulta), params: { consulta: { anotaciones: @consulta.anotaciones, nutriologo_id: @consulta.nutriologo_id, paciente_id: @consulta.paciente_id, problema_id: @consulta.problema_id, signo_id: @consulta.signo_id } }
+    patch consulta_url(@consulta), params: { consulta: { anotaciones: @consulta.anotaciones, nutriologo_id: @consulta.nutriologo_id, paciente_id: @consulta.paciente_id } }
     assert_redirected_to consulta_url(@consulta)
   end
 

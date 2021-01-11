@@ -17,7 +17,7 @@ class ProblemasControllerTest < ActionDispatch::IntegrationTest
 
   test "should create problema" do
     assert_difference('Problema.count') do
-      post problemas_url, params: { problema: { ansiedad: @problema.ansiedad, diarrea: @problema.diarrea, estrenimiento: @problema.estrenimiento, gastritis: @problema.gastritis, insomnio: @problema.insomnio, nauseas: @problema.nauseas, obesidad: @problema.obesidad, vomito: @problema.vomito } }
+      post problemas_url, params: { problema: { ansiedad: @problema.ansiedad, consulta_id: @problema.consulta_id, diarrea: @problema.diarrea, estrenimiento: @problema.estrenimiento, gastritis: @problema.gastritis, insomnio: @problema.insomnio, nauseas: @problema.nauseas, obesidad: @problema.obesidad, vomito: @problema.vomito } }
     end
 
     assert_redirected_to problema_url(Problema.last)
@@ -34,7 +34,7 @@ class ProblemasControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update problema" do
-    patch problema_url(@problema), params: { problema: { ansiedad: @problema.ansiedad, diarrea: @problema.diarrea, estrenimiento: @problema.estrenimiento, gastritis: @problema.gastritis, insomnio: @problema.insomnio, nauseas: @problema.nauseas, obesidad: @problema.obesidad, vomito: @problema.vomito } }
+    patch problema_url(@problema), params: { problema: { ansiedad: @problema.ansiedad, consulta_id: @problema.consulta_id, diarrea: @problema.diarrea, estrenimiento: @problema.estrenimiento, gastritis: @problema.gastritis, insomnio: @problema.insomnio, nauseas: @problema.nauseas, obesidad: @problema.obesidad, vomito: @problema.vomito } }
     assert_redirected_to problema_url(@problema)
   end
 

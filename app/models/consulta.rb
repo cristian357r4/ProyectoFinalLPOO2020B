@@ -1,6 +1,6 @@
 class Consulta < ApplicationRecord
-  belongs_to :nutriologo
   belongs_to :paciente
-  belongs_to :signo
-  belongs_to :problema
+  belongs_to :nutriologo
+  has_many :problemas, dependent: :destroy
+  has_many :signos, dependent: :destroy
 end
